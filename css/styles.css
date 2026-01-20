@@ -61,7 +61,7 @@ header p {
 }
 
 nav {
-    background-color: #3d1461;
+    background-color: #22c55e;
     padding: 0.75rem;
     display: flex;              /* Make nav a flex container */
     justify-content: center;    /* Center the ul inside nav */
