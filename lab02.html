@@ -34,7 +34,7 @@
 
         <section>
   <h2>Overview</h2>
-  <p>In this lab, I evaluated two AI tools—Canva AI and ChatGPT—using a framework focused on capabilities, appropriate use, and ethical considerations...</p>
+  <p>In this lab, I evaluated two AI tools—Canva AI and Claude—using a framework focused on capabilities, appropriate use, and ethical considerations...</p>
 </section>
 
 <section>
@@ -48,26 +48,111 @@
 
   <h3>Evidence: Prompts + Outputs</h3>
   <!-- Prompt 1 card -->
+ <div class="prompt-card">
+    <h4>Prompt 1: WCAG Accessibility (Baseline)</h4>
+    <p><strong>Prompt:</strong> “Design a social media post announcing a sustainability event that meets WCAG accessibility standards for color contrast and readability.”</p>
+    
+    <div class="image-row">
+  <figure>
+    <img src="images/Instagram Post - Join the Sustainability Movement.jpg"
+         alt="First Canva AI WCAG-focused sustainability post">
+    <figcaption>Initial Canva AI WCAG-focused output.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="images/Sustainability Event Poster - Urban Park.jpg"
+         alt="Second Canva AI WCAG-focused sustainability post">
+    <figcaption>Alternate Canva AI WCAG-focused variation.</figcaption>
+  </figure>
+</div>
+ <p><strong>Takeaway:</strong>
+    Both outputs prioritize clean hierarchy and readable text, but accessibility is treated as a visual approximation rather than a verified standard.
+  </p>
+</div>
+
+
   <!-- Prompt 2 card -->
+  <div class="prompt-card">
+    <h4>Prompt 2: Color-blind Friendly + Low Vision + Alt Text</h4>
+    <p><strong>Prompt:</strong> “Can you use a color-blind friendly palette, readable hierarchy for low vision, and alt-text suggestions?”</p>
+  <div class="single-image">
+  <figure>
+    <img src="images/Instagram Post - Join Our Sustainability Event!.jpg"
+         alt="Canva AI redesign using a color-blind friendly palette and clearer hierarchy for low vision.">
+    <figcaption>Revised output: improved hierarchy and simplified layout, but some light text on pale backgrounds may still fail contrast standards.</figcaption>
+  </figure>
+  </div>
+    <p><strong>Takeaway:</strong> Canva responds well to accessibility language, but may introduce new contrast issues—suggesting accessibility is treated as an aesthetic adjustment, not a measurable standard.</p>
+  </div>
+
   <!-- Prompt 3 card -->
+ <div class="prompt-card">
+    <h4>Prompt 3: WCAG AA Contrast Verification (Claims vs Proof)</h4>
+    <p><strong>Prompt:</strong> “Redesign this post so that all text meets WCAG AA contrast ratios. Please specify which text/background combinations meet the standard.”</p>
+    <div class="single-image"></div>
+    <figure>
+      <img src="images/Instagram Post - Sustainable Solutions for Tomorrow  .jpg" alt="Canva AI redesign with darker background and higher contrast text for WCAG AA." />
+      <figcaption>
+        Higher-contrast redesign: visually improved readability, but no contrast values or verification were provided despite the prompt.
+      </figcaption>
+    </figure>
+ </div>
+    <p><strong>Takeaway:</strong> Canva can redesign toward accessibility, but it does not audit or confirm WCAG AA compliance—verification still requires external checking and human review.</p>
+  </div>
+
   <!-- Prompt 4 card -->
 
+  <div class="prompt-card">
+    <h4>Prompt 4: Motion + Cognitive Accessibility (Limit Test)</h4>
+    <p><strong>Prompt:</strong> “Create a short animated version of this post that is accessible for users with cognitive disabilities and motion sensitivity.”</p>
+      <figcaption>
+        Capability boundary: Canva AI stated it cannot reliably add text to videos and suggested adding text manually after generation.
+      </figcaption>
+    </figure>
+    <p><strong>Takeaway:</strong> When accessibility constraints become multi-layered (motion sensitivity + cognition + text timing), Canva AI cannot fully execute the task and shifts responsibility back to the user.</p>
+  </div>
+
   <h3>Capabilities</h3>
-  <p>...</p>
+  <p>
+    Across the four tests, Canva AI was strongest at quickly producing polished layouts with clear hierarchy and a cohesive
+    visual style. It responded to accessibility-oriented prompting by simplifying structure and increasing contrast in later
+    iterations. However, the tool struggled with technical specificity: it did not provide measurable WCAG contrast proof,
+    and it hit a clear limitation when asked to generate motion-accessible video that includes text. Overall, Canva AI
+    behaves like a fast design assistant rather than an accessibility-aware system.
+  </p>
+
 
   <h3>Appropriate Use</h3>
-  <p>...</p>
+   <p>
+    Canva AI is best used for early-stage drafting—quickly exploring layouts, visual directions, and accessibility-informed
+    starting points. It becomes less appropriate when a project requires verified standards (WCAG AA compliance), nuanced
+    accessibility needs (motion sensitivity), or accurate documentation of compliance. The most responsible workflow is:
+    generate a draft with Canva AI, then refine intentionally and validate accessibility using external tools and human judgment.
+  </p>
 
   <h3>Ethical Considerations</h3>
-  <p>...</p>
+  <p>
+    The biggest ethical risk I observed is “confidence without verification.” Canva AI can present outputs as accessible,
+    but it does not reliably confirm compliance or provide evidence (contrast ratios, verified pairings). In public-facing or
+    institutional communication, this can create a false sense of inclusion. Accessibility is not just a visual style—it
+    affects who can participate. These tests reinforced that designers must take responsibility for validation and avoid
+    treating AI-generated accessibility as automatically correct.
+  </p>
 </section>
 
 <section>
-  <h2>Tool 2: ChatGPT</h2>
+  <section id="claude-ai">
+    <h2>Tool 2: Claude</h2>
+  <p>
+    To complement my evaluation of Canva AI’s visual design capabilities,
+    I tested Claude as a text-based AI assistant with a focus on accessibility,
+    ethical reasoning, and transparency.
+  </p>
 
   <h3>Evidence: Prompts + Outputs</h3>
-  <!-- Include 2–3 prompts + short pasted outputs -->
-
+   <!-- Claude prompts will go here -->
+  <h3>Analysis</h3>
+  
   <h3>Capabilities</h3>
   <p>...</p>
 
@@ -98,20 +183,6 @@
  
 </main>
 
-
-        <!-- Reflection Section: Optional semester reflection -->
-         <!-- Started the semester reflection section to document what I am learning
-     and challenges I am overcoming throughout the course -->
-
-        <section id="reflection">
-            <h2>Semester Reflection</h2>
-            <!-- TODO: After completing all labs, write a reflection on your growth -->
-            <p><strong>What I learned:</strong> I learned how to set up a personal portfolio using GitHub, VS Code, and GitHub Pages, and how these tools work together to publish a website. I also became more comfortable editing HTML and understanding how small changes in code affect the structure and content of a webpage.</p>
-            <p><strong>Challenges I overcame:</strong> One challenge I faced was uploading my profile photo and adjusting its size so it fit properly within the page layout, but through troubleshooting file paths and experimenting with CSS styling, I was able to resolve the issue and improve the overall design. </p>
-            <p><strong>How I grew:</strong> My understanding of digital culture and data analytics has evolved as I've learned to use tools like Tableau and Folium to visualize data and tell stories with numbers. I've also become more confident in my ability to create and maintain a professional online presence.</p>
-            <p><strong>Looking ahead:</strong> I plan to continue building on these skills by exploring more advanced data visualization techniques and learning how to integrate interactive elements into web pages.</p>
-        </section>
-    </main>
 
     <!-- Footer: Links and copyright -->
     <footer>

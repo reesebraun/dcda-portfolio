@@ -418,3 +418,74 @@ footer a:hover {
         page-break-inside: avoid;
     }
 }
+.prompt-card {
+  padding: 16px;
+  margin: 18px 0;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 12px;
+}
+
+.prompt-card figure {
+  margin: 12px 0;
+}
+
+.prompt-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+/* Lab 02 image scaling */
+.prompt-card img {
+  max-width: 520px;   /* controls how wide images can be */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 12px auto;
+  border-radius: 12px;
+}
+.image-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.image-row figure {
+  max-width: 320px;
+  margin: 0;
+}
+
+.image-row img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.prompt-card figure {
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 16px;
+}
+
+/* Smaller single images for Prompts 2–4 */
+.single-image img {
+  max-width: 480px;   /* adjust: try 480–550px */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 12px auto;
+  border-radius: 12px;
+}
+.single-image figcaption {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 6px;
+  text-align: center;
+}
+.single-image img {
+  max-width: 480px !important;
+  width: auto !important;
+  height: auto !important;
+  display: block;
+  margin: 12px auto;
+}
