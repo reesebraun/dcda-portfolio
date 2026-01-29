@@ -497,3 +497,14 @@ section h4 {
   margin-top: 1.2rem;
   font-weight: 600;
 }
+figure {
+  margin: 0;
+}
+figure img {
+  max-width: 700px;   /* adjust this number if needed */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
