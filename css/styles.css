@@ -508,3 +508,10 @@ figure img {
   margin: 0 auto;
 }
 
+figure img {
+  max-width: 700px;   /* adjust this number if needed */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
