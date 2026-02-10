@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4 Tableau Map | Reese Braun</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation: Links to all portfolio pages -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="lab02.html">AI Evaluation</a></li>
+            <li><a href="lab03.html">Tufte Critique</a></li>
+            <li><a href="lab04.html">Tableau Viz</a></li>
+            <li><a href="lab5.html">Lab 5</a></li>
+            <li><a href="hometown-map.html">Hometown Map</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Lab 4: Exploratory Data Analysis in Tableau</h1>
+        <p>DCDA 40833 Skills Portfolio | Spring 2026</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Visualization</h2>
+
+            <p>
+                This interactive map visualizes all recorded earthquakes with a magnitude of 6.0 or greater from 1900–2014,
+                using data from the United States Geological Survey (USGS). Use the date filter and hover tooltips to explore
+                patterns in earthquake location, magnitude, and depth over time.
+            </p>
+
+            <!-- Tableau Embed Container -->
+            <div class="tableauPlaceholder" style="width: 100%; max-width: 1100px; margin: 0 auto;">
+                <!-- PASTE YOUR TABLEAU PUBLIC EMBED CODE BELOW THIS LINE -->
+                <div class='tableauPlaceholder' id='viz1770751358558' style='position: relative'><noscript><a href='#'><img alt='Map of Global Mag 6 Plus Earthquakes from 1900-2014 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;W4&#47;W45KTM5SM&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;W45KTM5SM' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;W4&#47;W45KTM5SM&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1770751358558');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                
+            </div>
+
+            <p>
+                <strong>Title:</strong> Map of Global Magnitude 6+ Earthquakes (1900–2014)<br>
+                <strong>Source:</strong><a href="https://earthquake.usgs.gov/earthquakes/search/" target="_blank">United States Geological Survey (USGS)</a> <br>
+                <strong>Data Download:</strong> <a href="Mag6PlusEarthquakes_1900-2013.xlsx" target="blank"> USGS Earthquake Data (Excel) </a> <br>
+    </a>
+            </p>
+        </section>
+
+        <section>
+            <h2>Reflection & Analysis</h2>
+
+            <h3>1. Data Preparation</h3>
+            <p>
+                <!-- Write here -->
+                In my first attempt, I used an earthquake dataset that appeared to contain event timestamps in a non-standard format. When I imported the data into Tableau, the date field was not recognized as a valid date type, which prevented me from using it for filtering and time-based analysis. To resolve this issue, I opened the dataset in Excel and converted the timestamp column into a standard date format (YYYY-MM-DD) that Tableau could recognize. After re-importing the cleaned dataset into Tableau, I was able to successfully use the date field for filtering and visualizing earthquake occurrences over time. 
+            </p>
+
+            <h3>2. Design Choices</h3>
+            <p>
+                <!-- Write here -->
+                For the design choices, I opted to use a map visualization to display the geographical distribution of earthquake occurrences. This allowed me to easily identify patterns in location and frequency. I also implemented a date filter to enable users to explore how earthquake activity has changed over time. The color coding of the markers helped distinguish between different magnitudes, making it easier to spot significant events.
+            </p>
+
+            <h3>3. Expected Patterns</h3>
+            <p>
+                <!-- Write here -->
+                I expected to see a concentration of earthquake occurrences along tectonic plate boundaries, particularly in regions like the Pacific Ring of Fire. Additionally, I anticipated that the frequency of earthquakes would vary over time, with more recent years showing a higher number of events due to improved detection and reporting capabilities.
+            </p>
+
+            <h3> 4. Suprises & Outliers</h3>
+            <p>
+                <!-- Write here -->
+                I expected to see a concentration of earthquake occurrences along tectonic plate boundaries, particularly in regions like the Pacific Ring of Fire. Additionally, I anticipated that the frequency of earthquakes would vary over time, with more recent years showing a higher number of events due to improved detection and reporting capabilities.
+            </p>
+
+            <h3>5. Questions for Further Investigation</h3>
+            <p>
+                <!-- Write here -->
+                What factors contribute to the variability in earthquake frequency over time? How does the distribution of earthquake magnitudes change across different regions?
+            </p>    
+
+            <h3> 6. Tool Evaluation</h3>
+              <p>
+                <!-- Write here -->
+                What factors contribute to the variability in earthquake frequency over time? How does the distribution of earthquake magnitudes change across different regions?
+            </p> 
+
+        </section>
+    </div>
