@@ -55,7 +55,13 @@
             <h3>1. Data Preparation</h3>
             <p>
                 <!-- Write here -->
-                In my first attempt, I used an earthquake dataset that appeared to contain event timestamps in a non-standard format. When I imported the data into Tableau, the date field was not recognized as a valid date type, which prevented me from using it for filtering and time-based analysis. To resolve this issue, I opened the dataset in Excel and converted the timestamp column into a standard date format (YYYY-MM-DD) that Tableau could recognize. After re-importing the cleaned dataset into Tableau, I was able to successfully use the date field for filtering and visualizing earthquake occurrences over time. 
+                 I collected my dataset from Tableau Public’s sample datasets as an Excel file. I did not have any trouble downloading the file or creating a data source connection in Tableau. The dataset includes latitude and longitude coordinates, an earthquake ID, location descriptions provided by USGS, and associated attributes such as magnitude, depth, and gap.
+            </p>
+            <p>
+                 One limitation I noticed during preparation was that the “place” field was repeated for earthquakes that occurred in the same general location, and locations were not broken down into standardized geographic categories such as country or region. This restricted my ability to filter or compare earthquakes by political or regional boundaries. Additionally, the dataset does not explicitly state the units used for magnitude, depth, or gap, which could limit interpretability and credibility for users unfamiliar with seismic data conventions.
+            </p>
+            <p>
+                 I initially attempted to use a different dataset from Kaggle, but it lacked adequate geographic data such as latitude and longitude, which prevented making a meaningful map. I ultimately chose this dataset because of my background in environmental and geological sciences and my familiarity with spatial representations of earthquake data. I felt comfortable forming expectations about where earthquakes would occur and wanted to explore how magnitude, depth, and time interact spatially.
             </p>
 
             <h3>2. Design Choices</h3>
