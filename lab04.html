@@ -67,32 +67,63 @@
             <h3>2. Design Choices</h3>
             <p>
                 <!-- Write here -->
-                For the design choices, I opted to use a map visualization to display the geographical distribution of earthquake occurrences. This allowed me to easily identify patterns in location and frequency. I also implemented a date filter to enable users to explore how earthquake activity has changed over time. The color coding of the markers helped distinguish between different magnitudes, making it easier to spot significant events.
+                 Instead, I used point size to represent depth which shows more variation across events. While this can lead to some overcrowding in high-activity regions, it allows viewers to compare shallow versus deep earthquakes within the same geographic area. I included a date filter so users can explore how earthquake patterns change over time, as well as a magnitude filter to focus on specific ranges of seismic intensity.
+            </p>
+            <p>
+                Tooltips include the location (“place”), date, magnitude, depth, and gap, which I considered the most relevant contextual information without overwhelming the viewer. Overall, my design choices aimed to balance clarity with interactivity while keeping the visualization focused on spatial exploration.
             </p>
 
             <h3>3. Expected Patterns</h3>
             <p>
                 <!-- Write here -->
-                I expected to see a concentration of earthquake occurrences along tectonic plate boundaries, particularly in regions like the Pacific Ring of Fire. Additionally, I anticipated that the frequency of earthquakes would vary over time, with more recent years showing a higher number of events due to improved detection and reporting capabilities.
+                 Based on my prior knowledge of plate tectonics, I expected the majority of earthquakes to cluster along tectonic plate boundaries, particularly around the Pacific Ring of Fire, including Japan, Indonesia, Alaska, and the western coasts of North and South America. I also expected to see linear patterns corresponding to subduction zones and mid-ocean ridges rather than a random global distribution.
+            </p>
+            <p>
+                The visualization strongly confirms these expectations. Earthquake activity is heavily concentrated along known plate boundaries, with dense clustering around the Pacific and along oceanic margins. I also expected deeper earthquakes to be more common in subduction zones, which is reflected in the larger, deeper points visible along the Pacific plate boundary. Viewing the map across the full date range further reinforces the idea that these tectonic regions remain consistently active over time, rather than experiencing isolated or random bursts of seismic activity.
+
             </p>
 
             <h3> 4. Suprises & Outliers</h3>
             <p>
                 <!-- Write here -->
-                I expected to see a concentration of earthquake occurrences along tectonic plate boundaries, particularly in regions like the Pacific Ring of Fire. Additionally, I anticipated that the frequency of earthquakes would vary over time, with more recent years showing a higher number of events due to improved detection and reporting capabilities.
+                 One unexpected pattern was the relationship between depth and magnitude. While I initially assumed that deeper earthquakes might also be associated with higher magnitudes, the visualization suggests that many of the deepest earthquakes tend to have comparatively lower magnitudes within the dataset. This pattern stood out when comparing large point sizes (deep earthquakes) with their lighter color values.
+            </p>
+            <p>
+                Another subtle surprise was the presence of earthquakes that appear farther inland or slightly removed from the most visually obvious plate boundaries. While these events are fewer, their presence raises questions about intraplate seismicity or complex fault systems that are not immediately apparent from a simplified global map.
             </p>
 
             <h3>5. Questions for Further Investigation</h3>
-            <p>
-                <!-- Write here -->
-                What factors contribute to the variability in earthquake frequency over time? How does the distribution of earthquake magnitudes change across different regions?
-            </p>    
+
+            <ul>
+                <li>Are deeper earthquakes generally associated with lower magnitudes or is this pattern specific to certain tectonic settings?
+</li>
+                 <li>How much of the apparent increase in earthquake frequency over time reflects improved detection and reporting rather than actual increases in seismic activity?
+</li>
+                 <li> Do inland earthquakes represent intraplate fault systems, or are they artifacts of how locations are labeled in the dataset?</li>
+                    <li> How would the spatial patterns change if earthquakes below magnitude 6 were included?</li>
+                    <li> Are certain regions experiencing clusters of earthquakes related to aftershock sequences following major events?</li>
+</ul>
+            
 
             <h3> 6. Tool Evaluation</h3>
               <p>
                 <!-- Write here -->
-                What factors contribute to the variability in earthquake frequency over time? How does the distribution of earthquake magnitudes change across different regions?
+                 Tableau Public is effective for creating clear, interactive visualizations without overwhelming users, particularly for maps, charts, and basic exploratory analysis. Its drag-and-drop interface makes it accessible for beginners and allows for rapid visualization when testing design choices. Features like interactive filters, tooltips, and easy publishing make it well-suited for exploratory storytelling and portfolio work.
             </p> 
+            <p>
+                However, Tableau has limitations compared to more specialized tools. Unlike ArcGIS, it does not support advanced spatial analysis such as buffering, proximity analysis, or spatial joins. Compared to Python or R, Tableau offers less flexibility for data cleaning, statistical analysis, and reproducibility. I also encountered limitations in customization and data manipulation, particularly when the dataset itself restricted how fields could be filtered or transformed. While calculated fields are available, they do not fully replace the control offered by code-based workflows.
+
+            </p>
+            <p>
+                Overall, Tableau Public works best as a visualization and exploration tool rather than a full analytical environment. It works well at making patterns visible and interactive but requires well-prepared data and is less transparent than scripted analysis when documenting each step of the process.
+
+            </p>
 
         </section>
     </div>
+    <footer>
+        <p><a href="https://github.com/reesebraun/dcda-portfolio">View Repository on GitHub</a></p>
+        <p>&copy; 2026 Reese Braun | DCDA 40833 | TCU</p>
+    </footer>
+</body>
+</html>
