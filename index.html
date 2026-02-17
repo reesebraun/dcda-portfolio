@@ -11,12 +11,19 @@
 <body>
     <!-- Navigation: Links to all portfolio pages -->
     <nav>
-        <ul>
+        <!-- Hamburger button (hidden on desktop) -->
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        
+        <ul class="nav-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="lab02.html">AI Evaluation</a></li>
             <li><a href="lab03.html">Tufte Critique</a></li>
             <li><a href="lab04.html">Tableau Viz</a></li>
-            <li><a href="lab5.html">Lab 5</a></li>
+            <li><a href="lab05.html">Lab 5</a></li>
             <li><a href="hometown-map.html">Hometown Map</a></li>
         </ul>
     </nav>
@@ -91,7 +98,7 @@
                 </a>
 
                 <!-- Lab 5: TBD -->
-                <a href="lab5.html" class="portfolio-card">
+                <a href="lab05.html" class="portfolio-card">
                     <h3>Lab 5</h3>
                     <span class="lab-tag">Lab 5</span>
                     <p>Content based on Lab 5 assignment.</p>
@@ -126,5 +133,8 @@
         <p><a href="https://github.com/reesebraun/dcda-portfolio">View Repository on GitHub</a></p>
         <p>&copy; 2026 Reese Braun | DCDA 40833 | TCU</p>
     </footer>
+    
+    <!-- Hamburger menu script -->
+    <script src="js/menu.js"></script>
 </body>
 </html>
