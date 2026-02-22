@@ -48,6 +48,65 @@
      what kinds of projects will be included, and how it will grow over the semester -->
         </section>
 
+        <!-- Featured Project Spotlight Section -->
+        <section id="featured-project">
+            <h2>Featured Project Spotlight</h2>
+            
+            <!-- Main featured area -->
+            <div class="spotlight-container">
+                <div class="spotlight-featured" id="spotlightFeatured">
+                    <img 
+                        id="featuredImage" 
+                        src="images/Screenshot 2026-02-22 at 1.28.34 PM.png" 
+                        alt="AI Tool Evaluation project preview"
+                        class="featured-image"
+                    >
+                    <div class="featured-content">
+                        <h3 id="featuredTitle">AI Tool Evaluation</h3>
+                        <p id="featuredDescription">A comprehensive analysis of AI tools and their capabilities, exploring how artificial intelligence is transforming digital culture and everyday workflows.</p>
+                        <a id="featuredLink" href="lab02.html" class="view-project-btn">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Thumbnail navigation -->
+                <div class="spotlight-thumbnails">
+                    <button 
+                        class="thumbnail-btn active" 
+                        data-project="0"
+                        aria-label="Show AI Tool Evaluation project"
+                    >
+                        <img src="images/Screenshot 2026-02-22 at 1.28.34 PM.png" alt="">
+                        <span>AI Evaluation</span>
+                    </button>
+                    <button 
+                        class="thumbnail-btn" 
+                        data-project="1"
+                        aria-label="Show Tufte Critique project"
+                    >
+                        <img src="images/1112-rome-plastic-bottles.png" alt="">
+                        <span>Tufte Critique</span>
+                    </button>
+                    <button 
+                        class="thumbnail-btn" 
+                        data-project="2"
+                        aria-label="Show Tableau Visualization project"
+                    >
+                        <img src="images/Screenshot 2026-02-22 at 1.31.35 PM.png" alt="">
+                        <span>Tableau Viz</span>
+                    </button>
+                    <button 
+                        class="thumbnail-btn" 
+                        data-project="3"
+
+                        aria-label="Show Hometown Map project"
+                    >
+                        <img src="images/mapbox_image.png" alt="">
+                        <span>Hometown Map</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <!-- About Section: Tell visitors about yourself -->
         <section id="about">
             <h2>About Me</h2>
@@ -136,5 +195,8 @@
     
     <!-- Hamburger menu script -->
     <script src="js/menu.js"></script>
+    
+    <!-- Featured Project Spotlight script -->
+    <script src="js/spotlight.js"></script>
 </body>
 </html>
