@@ -4,6 +4,8 @@
  */
 
 // Project data array - easy to update with new projects
+// I understand basic code such as title, description, etc. I was able to link my images and hmtl lab files in this. 
+//Not sure if I am aware of why java is needed/ whats the difference, but i understand the basics. 
 const projects = [
     {
         title: 'AI Tool Evaluation',
@@ -34,7 +36,7 @@ const projects = [
         alt: 'Hometown Map project preview'
     }
 ];
-
+// I think this is where i become a bit more confused, but i can understand basics. 
 // Get DOM elements
 const featuredContainer = document.getElementById('spotlightFeatured');
 const featuredImage = document.getElementById('featuredImage');
@@ -48,6 +50,7 @@ let isAnimating = false; // Prevent double-clicks during animation
 
 /**
  * Updates the featured project content
+ // This is where i inserted updates to the ai prompt, i wanted the image to display the correct thumbnail associate with the lab. 
  * @param {number} index - Index of the project to display
  */
 function updateFeaturedProject(index) {
@@ -84,7 +87,8 @@ function updateFeaturedProject(index) {
         });
         
         currentIndex = index;
-        
+        // the animations, and buttons are definitley something I am new too, and think AI did a good job with applying what i wanted
+        // I like the enhacements with the pop-ups and highlights. 
         // Re-enable interactions after animation
         setTimeout(() => {
             isAnimating = false;

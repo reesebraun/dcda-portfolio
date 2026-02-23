@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 5 Vibe Coding | Reese Braun</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation: Links to all portfolio pages -->
+    <nav>
+        <!-- Hamburger button (hidden on desktop) -->
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="lab02.html">AI Evaluation</a></li>
+            <li><a href="lab03.html">Tufte Critique</a></li>
+            <li><a href="lab04.html">Tableau Viz</a></li>
+            <li><a href="lab05.html">Lab 5</a></li>
+            <li><a href="hometown-map.html">Hometown Map</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Lab 5: Exploratory Data Analysis in Tableau</h1>
+        <p>DCDA 40833 Skills Portfolio | Spring 2026</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Visualization</h2>
+
+            <p>
+                This interactive dashboard visualizes global earthquakes (magnitude 6.0+) from 1900–2014 using USGS data. It combines a spatial map, yearly and monthly trend charts, and a depth–magnitude comparison to explore how earthquake activity varies across location and time. Use the filters and hover tooltips to investigate patterns and individual events.
+            </p>
+
+            <!-- Tableau Embed Container -->
+            <div class="tableauPlaceholder" style="width: 100%; max-width: 1100px; margin: 0 auto;">
+                <!-- PASTE YOUR TABLEAU PUBLIC EMBED CODE BELOW THIS LINE -->
+                 <div class='tableauPlaceholder' id='viz1771289630915' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;La&#47;Lab4_Earthquakes&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Lab4_Earthquakes&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;La&#47;Lab4_Earthquakes&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1771289630915');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='1477px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </div>
+
+            <p>
+                <strong>Title:</strong> Map of Global Magnitude 6+ Earthquakes (1900–2014)<br>
+                <strong>Source:</strong><a href="https://earthquake.usgs.gov/earthquakes/search/" target="_blank">United States Geological Survey (USGS)</a> <br>
+                <strong>Data Download:</strong> <a href="Mag6PlusEarthquakes_1900-2013.xlsx" target="blank"> USGS Earthquake Data (Excel) </a> <br>
+    </a>
+            </p>
+        </section>
+
+        <section>
+            <h2>Reflection & Analysis</h2>
+
+            <h3>1. Data Preparation</h3>
+            <p>
+                <!-- Write here -->
+                 I collected my dataset from Tableau Public’s sample datasets as an Excel file. I did not have any trouble downloading the file or creating a data source connection in Tableau. The dataset includes latitude and longitude coordinates, an earthquake ID, location descriptions provided by USGS, and associated attributes such as magnitude, depth, and gap.
+            </p>
+            <p>
+                 One limitation I noticed during preparation was that the “place” field was repeated for earthquakes that occurred in the same general location, and locations were not broken down into standardized geographic categories such as country or region. This restricted my ability to filter or compare earthquakes by political or regional boundaries. Additionally, the dataset does not explicitly state the units used for magnitude, depth, or gap, which could limit interpretability and credibility for users unfamiliar with seismic data conventions.
+            </p>
+            <p>
+                 I initially attempted to use a different dataset from Kaggle, but it lacked adequate geographic data such as latitude and longitude, which prevented making a meaningful map. I ultimately chose this dataset because of my background in environmental and geological sciences and my familiarity with spatial representations of earthquake data. I felt comfortable forming expectations about where earthquakes would occur and wanted to explore how magnitude, depth, geographic location, and time interact.
+            </p>
+
+            <h3>2. Design Choices</h3>
+            <p>
+                <!-- Write here -->
+                 I chose to create a dashboard that includes four visual components:
+            </p>
+                <ul>
+                    <li> A global map of magnitude 6+ earthquakes </il>
+                    <li>A line graph showing number of earthquakes per year</il>
+                     <li> A bar chart showing number of earthquakes per month</il>
+                    <li>A scatter plot comparing depth and magnitude</il>
+                </ul>
+        
+            <p>
+                The map serves as the primary visualization because earthquakes are inherently spatial phenomena. I represented magnitude using a color ramp (yellow for lower magnitudes and red for higher magnitudes). I chose color rather than size for magnitude because the dataset is limited to earthquakes above magnitude 6, resulting in a narrower range that would not produce strong visual size differences. Point size on the map represents depth, which shows greater variation across events. While this can cause some overcrowding in highly active regions, it allows comparison between shallow and deep earthquakes within the same tectonic zones. Additionally, I included a date filter so users can explore how earthquake patterns change over time, as well as a magnitude filter to focus on specific ranges of seismic intensity.
+            </p>
+            <p>
+                The line graph of earthquakes per year allows exploration of temporal trends and whether recorded seismic activity appears to increase over time. The monthly bar chart was included to examine potential seasonal patterns. The bar chart is color coded based on month for easy interpretation. The depth vs. magnitude scatter plot helps explore whether deeper earthquakes are associated with stronger magnitudes which are color coded based on the year. 
+            </p>
+
+            <p>
+                All visualizations include tooltips with place, date, magnitude, depth, count of earthquakes, and gap to provide context without cluttering the dashboard. The goal was to balance interactivity with clarity.
+            </p>
+
+            <h3>3. Expected Patterns</h3>
+            <p>
+                Based on my understanding of plate tectonics, I expected earthquake activity to cluster along tectonic plate boundaries, particularly around the Pacific Ring of Fire, including Japan, Indonesia, Alaska, and the west coasts of North and South America. I also expected to see linear patterns along subduction zones and mid-ocean ridges rather than a random global distribution.
+            </p>
+
+            <p>
+                The map strongly confirms these expectations. Earthquakes are heavily concentrated along plate boundaries, especially in the Pacific region. The clustering becomes even more clear when viewing the full date range.
+            </p>
+
+            <p>
+                From the yearly line graph, I expected fewer recorded earthquakes in the early 1900s due to limited monitoring technology and reporting infrastructure. The visualization reflects this pattern, showing lower counts in earlier decades and a noticeable increase in recorded events later in the century.
+            </p>
+            <p>
+                I was less certain about seasonal variation, but I included the monthly chart to test whether earthquakes show any cyclical pattern. Based on tectonic theory, I did not expect strong seasonal trends, since earthquakes are driven by plate movement rather than weather or climate.
+
+            </p>
+
+            <h3> 4. Suprises & Outliers</h3>
+            <p>
+                One pattern that stood out in the depth vs. magnitude scatter plot was that higher magnitude earthquakes appear to be associated with greater depths, suggesting a possible positive relationship between magnitude and depth in this dataset. At first, I was unsure whether there would be a clear connection, but the scatter plot makes this trend more visible. This relationship is harder to interpret based on the map itself because larger depth values are shown as larger data points, which can hide smaller or shallower earthquakes in highly active regions. The map works well for spatial clustering, but the scatter plot better reveals the depth to magnitude relationship.
+
+            </p>
+
+            <p>
+                The yearly graph also shows noticeable spikes in 1995 and 2000, along with a gradual overall increase in the number of recorded earthquakes over time. This raises an important question about whether earthquakes are truly increasing or whether improvements in monitoring and reporting are responsible for the trend. The year 2011 stands out as having the highest combined magnitude and depth values in the dashboard, likely corresponding to major global seismic events. In contrast, 2014 appears lower than surrounding years, which may indicate incomplete data rather than a real decline in activity.
+
+            </p>
+
+            <p>
+                The monthly bar chart does not show dramatic seasonal spikes, which aligns with the understanding that earthquakes are driven by tectonic movement rather than seasonal factors. However, March clearly appears to be the most active month, followed by April, suggesting that spring may show slightly higher counts in this dataset. While the difference is not extreme, it is noticeable enough to raise further questions rather than dismissing it as random variation.
+
+            </p>
+           
+
+
+            <h3>5. Questions for Further Investigation</h3>
+
+            <ul>
+                <li>Are deeper earthquakes generally associated with lower magnitudes, or is this pattern specific to certain tectonic settings?
+</li>
+                    <li>Is the apparent increase in earthquakes per year due to improved detection and reporting, or does it reflect real changes in seismic activity?
+</li>
+                 <li>Do inland earthquakes represent intraplate fault systems, or are they artifacts of how locations are labeled in the dataset?
+</li>
+                 <li> Would including earthquakes below magnitude 6 significantly change the perceived spatial and temporal patterns?</li>
+                 <li>Are clusters in certain years related to aftershock sequences following major seismic events?
+</li>
+</ul>
+            
+
+            <h3> 6. Tool Evaluation</h3>
+              <p>
+                <!-- Write here -->
+                 Tableau Public works well for building interactive dashboards that combine spatial and temporal data in a visually accessible way. The ability to integrate maps, line graphs, bar charts, and scatter plots into a single dashboard allows users to easily compare multiple aspects of a dataset at once. Interactive filters and tooltips enhance exploration without overwhelming the viewer.
+
+            </p> 
+            <p>
+                However, Tableau is limited compared to tools such as ArcGIS, which offers advanced spatial analysis features like buffering, spatial joins, and geoprocessing tools. Compared to programming tools like Python or R, Tableau provides less flexibility for data cleaning, statistical modeling, and reproducibility. While calculated fields are useful, they do not fully replace the analytical depth available in code-based workflows.
+            </p>
+            <p>
+                Overall, Tableau Public is well-suited for exploratory data visualization and interactive storytelling but is less powerful for advanced spatial or statistical analysis. It works best when paired with well-prepared data and clear analytical questions.
+
+
+            </p>
+
+        </section>
+    </div>
+    <footer>
+        <p><a href="https://github.com/reesebraun/dcda-portfolio">View Repository on GitHub</a></p>
+        <p>&copy; 2026 Reese Braun | DCDA 40833 | TCU</p>
+    </footer>
+    
+    <!-- Hamburger menu script -->
+    <script src="js/menu.js"></script>
+</body>
+</html>
