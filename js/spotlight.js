@@ -87,8 +87,8 @@ function updateFeaturedProject(index) {
         });
         
         currentIndex = index;
-        // the animations, and buttons are definitley something I am new too, and think AI did a good job with applying what i wanted
-        // I like the enhacements with the pop-ups and highlights. 
+        // The animations, and buttons are definitley something I am new too, and think AI did a good job with applying what i wanted
+        // I like the enhacements with the pop-ups and highlights. This is defintley something I could not have done without AI, and I am happy with how it turned out.
         // Re-enable interactions after animation
         setTimeout(() => {
             isAnimating = false;

@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 5 Vibe Coding | Reese Braun</title>
+    <title>Lab 5 AI-Assisted Development | Reese Braun</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -15,7 +16,7 @@
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
         </button>
-        
+
         <ul class="nav-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="lab02.html">AI Evaluation</a></li>
@@ -27,138 +28,298 @@
     </nav>
 
     <header>
-        <h1>Lab 5: Exploratory Data Analysis in Tableau</h1>
+        <h1>Lab 5: AI-Assisted Development (Vibe Coding)</h1>
         <p>DCDA 40833 Skills Portfolio | Spring 2026</p>
     </header>
 
     <main>
+        <!-- =========================
+             EXPERIMENT A
+        ========================== -->
         <section>
-            <h2>Visualization</h2>
+            <h2>Experiment A: Portfolio Enhancement</h2>
 
+            <h3>Feature Overview</h3>
             <p>
-                This interactive dashboard visualizes global earthquakes (magnitude 6.0+) from 1900–2014 using USGS data. It combines a spatial map, yearly and monthly trend charts, and a depth–magnitude comparison to explore how earthquake activity varies across location and time. Use the filters and hover tooltips to investigate patterns and individual events.
+                For Experiment A, I used Claude Sonnet 4.5 as a coding tool to enhance my portfolio homepage.
+                I added a “Featured Project Spotlight” section that allows users to click thumbnail buttons to switch
+                the featured project content (image, title, description, and link) with a subtle fade/slide animation.
             </p>
 
-            <!-- Tableau Embed Container -->
-            <div class="tableauPlaceholder" style="width: 100%; max-width: 1100px; margin: 0 auto;">
-                <!-- PASTE YOUR TABLEAU PUBLIC EMBED CODE BELOW THIS LINE -->
-                 <div class='tableauPlaceholder' id='viz1771289630915' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;La&#47;Lab4_Earthquakes&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Lab4_Earthquakes&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;La&#47;Lab4_Earthquakes&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1771289630915');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='1477px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-            </div>
-
+            <h3>Planning</h3>
             <p>
-                <strong>Title:</strong> Map of Global Magnitude 6+ Earthquakes (1900–2014)<br>
-                <strong>Source:</strong><a href="https://earthquake.usgs.gov/earthquakes/search/" target="_blank">United States Geological Survey (USGS)</a> <br>
-                <strong>Data Download:</strong> <a href="Mag6PlusEarthquakes_1900-2013.xlsx" target="blank"> USGS Earthquake Data (Excel) </a> <br>
-    </a>
-            </p>
-        </section>
-
-        <section>
-            <h2>Reflection & Analysis</h2>
-
-            <h3>1. Data Preparation</h3>
-            <p>
-                <!-- Write here -->
-                 I collected my dataset from Tableau Public’s sample datasets as an Excel file. I did not have any trouble downloading the file or creating a data source connection in Tableau. The dataset includes latitude and longitude coordinates, an earthquake ID, location descriptions provided by USGS, and associated attributes such as magnitude, depth, and gap.
-            </p>
-            <p>
-                 One limitation I noticed during preparation was that the “place” field was repeated for earthquakes that occurred in the same general location, and locations were not broken down into standardized geographic categories such as country or region. This restricted my ability to filter or compare earthquakes by political or regional boundaries. Additionally, the dataset does not explicitly state the units used for magnitude, depth, or gap, which could limit interpretability and credibility for users unfamiliar with seismic data conventions.
-            </p>
-            <p>
-                 I initially attempted to use a different dataset from Kaggle, but it lacked adequate geographic data such as latitude and longitude, which prevented making a meaningful map. I ultimately chose this dataset because of my background in environmental and geological sciences and my familiarity with spatial representations of earthquake data. I felt comfortable forming expectations about where earthquakes would occur and wanted to explore how magnitude, depth, geographic location, and time interact.
-            </p>
-
-            <h3>2. Design Choices</h3>
-            <p>
-                <!-- Write here -->
-                 I chose to create a dashboard that includes four visual components:
-            </p>
+                Before prompting AI, I identified the components I would need: 
                 <ul>
-                    <li> A global map of magnitude 6+ earthquakes </il>
-                    <li>A line graph showing number of earthquakes per year</il>
-                     <li> A bar chart showing number of earthquakes per month</il>
-                    <li>A scatter plot comparing depth and magnitude</il>
+                    <li>A featured area showing: image, title, 1–2 sentence description, and a “View Project” button link</li>
+                    <li>CSS for layout, responsive spacing, and monitoring</li>
+                    <li>JavaScript to update the featured content on click/keyboard input</li>
                 </ul>
-        
-            <p>
-                The map serves as the primary visualization because earthquakes are inherently spatial phenomena. I represented magnitude using a color ramp (yellow for lower magnitudes and red for higher magnitudes). I chose color rather than size for magnitude because the dataset is limited to earthquakes above magnitude 6, resulting in a narrower range that would not produce strong visual size differences. Point size on the map represents depth, which shows greater variation across events. While this can cause some overcrowding in highly active regions, it allows comparison between shallow and deep earthquakes within the same tectonic zones. Additionally, I included a date filter so users can explore how earthquake patterns change over time, as well as a magnitude filter to focus on specific ranges of seismic intensity.
-            </p>
-            <p>
-                The line graph of earthquakes per year allows exploration of temporal trends and whether recorded seismic activity appears to increase over time. The monthly bar chart was included to examine potential seasonal patterns. The bar chart is color coded based on month for easy interpretation. The depth vs. magnitude scatter plot helps explore whether deeper earthquakes are associated with stronger magnitudes which are color coded based on the year. 
+                    My goal was to keep the feature playful but still readable, accessible, and consistent with the rest of my site.
             </p>
 
+            <h3>Prompt + AI Output (Documentation)</h3>
             <p>
-                All visualizations include tooltips with place, date, magnitude, depth, count of earthquakes, and gap to provide context without cluttering the dashboard. The goal was to balance interactivity with clarity.
+                Below is the prompt I used. I saved the full AI output and my refinements in my repository for transparency.
             </p>
+            <pre><code>
+            I have a static HTML/CSS portfolio site (no frameworks). I want a slightly playful “Featured Project Spotlight” section on my homepage.
 
-            <h3>3. Expected Patterns</h3>
+Requirements: A featured area showing: image, title, 1–2 sentence description, and a “View Project” button link
+
+Below it, 4 thumbnail buttons (not links) with small images + labels
+
+When a thumbnail is clicked, update the featured image/title/description/link dynamically (no page reload)
+
+Add a subtle playful animation when switching (fade + small slide is fine, keep it tasteful)
+
+Accessibility: thumbnails are button elements, keyboard operable, clear :focus-visible styles, meaningful alt text
+
+Use vanilla JavaScript only, beginner-friendly, no libraries
+
+Please output:
+
+HTML for the spotlight section
+
+CSS for layout + animation + selected thumbnail state
+
+JavaScript to handle switching and animation
+
+Short explanation of how it works. 
+            </code></pre>
+
+            <h3>Key Code Snippet (with Understanding Spectrum Comments)</h3>
             <p>
-                Based on my understanding of plate tectonics, I expected earthquake activity to cluster along tectonic plate boundaries, particularly around the Pacific Ring of Fire, including Japan, Indonesia, Alaska, and the west coasts of North and South America. I also expected to see linear patterns along subduction zones and mid-ocean ridges rather than a random global distribution.
+                This snippet shows part of the JavaScript logic that powers the Featured Project Spotlight.
+    The comments reflect my honest position on the understanding spectrum after reviewing and
+    testing the AI-generated code.
             </p>
+            <pre><code>
+// I understand basic code such as title, description, etc. I was able to link my images and hmtl lab files in this. 
+//Not sure if I am aware of why java is needed/ whats the difference, but i understand the basics. 
+const projects = [
+    {
+        title: 'AI Tool Evaluation',
+        description: 'A comprehensive analysis of AI tools and their capabilities, exploring how artificial intelligence is transforming digital culture and everyday workflows.',
+        image: 'images/Screenshot 2026-02-22 at 1.28.34 PM.png',
+        link: 'lab02.html',
+        alt: 'AI Tool Evaluation project preview'
+// The animations, and buttons are definitley something I am new too, and think AI did a good job with applying what i wanted
+        // I like the enhacements with the pop-ups and highlights. This is defintley something I could not have done without AI, and I am happy with how it turned out.
+        // Re-enable interactions after animation
+        setTimeout(() => {
+            isAnimating = false;
+        }, 300);
+    }, 300); // Match CSS transition duration
+}
+            </code></pre>
 
+     <h3>Prompts, Testing, and Iterations</h3>
+
+<p>
+  I treated AI as a collaborator rather than a final answer. After implementing the initial output,
+  I tested the feature in my browser and refined the code through
+  additional prompts and debugging.
+</p>
+
+<h4>Change 1: Refinement Request</h4>
+<pre><code>
+I also would like the spotlight featured project thumbnail photos to match the photo that is used in the bottom button thumbnail.
+</code></pre>
+<p>
+  <strong>Result:</strong> This pushed me to keep the images consistent across the thumbnails and featured display,
+  and helped me understand how storing content in a single projects array reduces duplication.
+</p>
+
+<h4>Change 2: Debugging Request</h4>
+<pre><code>
+The tableau vis thumbnail is not appearing when commanded. Look for errors in the JavaScript to fix this.
+</code></pre>
+<p>
+  <strong>Result:</strong> The issue ended up being a file path/filename mismatch (spaces/capitalization/encoding).
+  AI pointed me in the right direction, but I ultimately fixed it by making the image path formatting consistent.
+  This reinforced how sensitive web projects are to exact filenames.
+</p>
+
+     <h3>Screenshot / Demo</h3>
             <p>
-                The map strongly confirms these expectations. Earthquakes are heavily concentrated along plate boundaries, especially in the Pacific region. The clustering becomes even more clear when viewing the full date range.
+                Screenshot of the spotlight feature on my homepage:
             </p>
-
-            <p>
-                From the yearly line graph, I expected fewer recorded earthquakes in the early 1900s due to limited monitoring technology and reporting infrastructure. The visualization reflects this pattern, showing lower counts in earlier decades and a noticeable increase in recorded events later in the century.
-            </p>
-            <p>
-                I was less certain about seasonal variation, but I included the monthly chart to test whether earthquakes show any cyclical pattern. Based on tectonic theory, I did not expect strong seasonal trends, since earthquakes are driven by plate movement rather than weather or climate.
-
-            </p>
-
-            <h3> 4. Suprises & Outliers</h3>
-            <p>
-                One pattern that stood out in the depth vs. magnitude scatter plot was that higher magnitude earthquakes appear to be associated with greater depths, suggesting a possible positive relationship between magnitude and depth in this dataset. At first, I was unsure whether there would be a clear connection, but the scatter plot makes this trend more visible. This relationship is harder to interpret based on the map itself because larger depth values are shown as larger data points, which can hide smaller or shallower earthquakes in highly active regions. The map works well for spatial clustering, but the scatter plot better reveals the depth to magnitude relationship.
-
-            </p>
-
-            <p>
-                The yearly graph also shows noticeable spikes in 1995 and 2000, along with a gradual overall increase in the number of recorded earthquakes over time. This raises an important question about whether earthquakes are truly increasing or whether improvements in monitoring and reporting are responsible for the trend. The year 2011 stands out as having the highest combined magnitude and depth values in the dashboard, likely corresponding to major global seismic events. In contrast, 2014 appears lower than surrounding years, which may indicate incomplete data rather than a real decline in activity.
-
-            </p>
-
-            <p>
-                The monthly bar chart does not show dramatic seasonal spikes, which aligns with the understanding that earthquakes are driven by tectonic movement rather than seasonal factors. However, March clearly appears to be the most active month, followed by April, suggesting that spring may show slightly higher counts in this dataset. While the difference is not extreme, it is noticeable enough to raise further questions rather than dismissing it as random variation.
-
-            </p>
-           
-
-
-            <h3>5. Questions for Further Investigation</h3>
-
-            <ul>
-                <li>Are deeper earthquakes generally associated with lower magnitudes, or is this pattern specific to certain tectonic settings?
-</li>
-                    <li>Is the apparent increase in earthquakes per year due to improved detection and reporting, or does it reflect real changes in seismic activity?
-</li>
-                 <li>Do inland earthquakes represent intraplate fault systems, or are they artifacts of how locations are labeled in the dataset?
-</li>
-                 <li> Would including earthquakes below magnitude 6 significantly change the perceived spatial and temporal patterns?</li>
-                 <li>Are clusters in certain years related to aftershock sequences following major seismic events?
-</li>
-</ul>
-            
-
-            <h3> 6. Tool Evaluation</h3>
-              <p>
-                <!-- Write here -->
-                 Tableau Public works well for building interactive dashboards that combine spatial and temporal data in a visually accessible way. The ability to integrate maps, line graphs, bar charts, and scatter plots into a single dashboard allows users to easily compare multiple aspects of a dataset at once. Interactive filters and tooltips enhance exploration without overwhelming the viewer.
-
-            </p> 
-            <p>
-                However, Tableau is limited compared to tools such as ArcGIS, which offers advanced spatial analysis features like buffering, spatial joins, and geoprocessing tools. Compared to programming tools like Python or R, Tableau provides less flexibility for data cleaning, statistical modeling, and reproducibility. While calculated fields are useful, they do not fully replace the analytical depth available in code-based workflows.
-            </p>
-            <p>
-                Overall, Tableau Public is well-suited for exploratory data visualization and interactive storytelling but is less powerful for advanced spatial or statistical analysis. It works best when paired with well-prepared data and clear analytical questions.
-
-
-            </p>
-
+            <figure>
+                <img src="images/Screenshot 2026-02-23 at 7.24.16 PM.png"
+                     alt="Screenshot of the Featured Project Spotlight section showing thumbnail buttons and a featured project display">
+                <figcaption>Featured Project Spotlight (Experiment A)</figcaption>
+            </figure>
         </section>
-    </div>
-    <footer>
+
+        <!-- =========================
+             EXPERIMENT B
+        ========================== -->
+        <section>
+            <h2>Experiment B: Python Code Generation in Google Colab</h2>
+
+            <h3>Task Definition</h3>
+            <p>
+                For Experiment B, I used AI-assisted Python code generation in Google Colab to analyze my Lab 4 earthquake
+                dataset (magnitude 6.0+). My goal was to clean key columns (magnitude and depth) and create a specific
+                visualization that shows the relationship between earthquake magnitude and depth, along with a second chart
+                that summarizes how magnitudes are distributed within the 6.0+ dataset.
+            </p>
+
+            <h3>Prompt + AI Output (Documentation)</h3>
+            <pre><code>
+I am working in Google Colab using a CSV dataset of earthquakes. The dataset includes columns such as: magnitude (mag), depth, time, latitude, longitude, and place.
+
+Please generate Python code that:
+
+uploads a CSV file in Colab
+
+loads it into pandas
+
+prints column names and missing value summary
+
+converts magnitude and depth to numeric safely (handle errors)
+
+drops rows where magnitude or depth is missing
+
+creates:
+
+a scatter plot of magnitude vs depth (invert depth axis so deeper earthquakes appear lower)
+
+a bar chart of earthquake counts by magnitude category (<4, 4–5, 5–6, 6+)
+
+uses matplotlib only (no seaborn)
+
+includes clear comments explaining each step
+
+includes simple edge case checks (for missing columns)
+
+Keep it beginner-friendly but robust.
+            </code></pre>
+
+            <h3>Prompts, Testing, and Iterations</h3>
+
+<p>
+  After generating the initial Colab code, I tested the output charts and realized that my dataset
+  only includes magnitude 6.0+ earthquakes. Because of this, the original magnitude binning
+  (<4, 4–5, 5–6, 6+) produced an uninformative bar chart where everything fell into the 6+ bin.
+  I used a follow-up prompt to refine the visualization so it matched the dataset.
+</p>
+
+<h4>Refinement Prompt (Fixing the Visualization for a 6+ Dataset)</h4>
+<pre><code>
+I’m using a dataset called Mag6PlusEarthquakes_1900-2013.csv, so all magnitudes are already >= 6.
+The current bar chart bins &lt;4, 4–5, 5–6, 6+ and it’s not informative because all values fall into 6+.
+
+Please modify the code so the second visualization is meaningful for a 6+ dataset. Options I’m open to:
+- histogram of magnitudes with bins between 6.0 and 9.6, or
+- bar chart with magnitude ranges like 6.0–6.5, 6.5–7.0, 7.0–7.5, 7.5–8.0, 8.0+
+
+Keep pandas + matplotlib only. Add comments explaining why the new bins are chosen.
+</code></pre>
+
+<p>
+  <strong>Result:</strong> The revised code created magnitude bins within the 6.0+ range, which produced a more meaningful
+  distribution chart and better matched the dataset’s scope.
+</p>
+
+            <h3>Charts</h3>
+            <figure>
+                <img src="images/newchartlab5.png"
+                     alt="Scatter plot showing earthquake magnitude on the x-axis and depth on the y-axis with inverted depth axis">
+                <figcaption>Magnitude vs Depth (Experiment B)</figcaption>
+            </figure>
+
+            <figure>
+                <img src="images/newbarchartlab5.png"
+                     alt="Bar chart showing counts of earthquakes by magnitude range from 6.0–6.5 through 8.0+">
+                <figcaption>Distribution of Magnitude 6.0+ Earthquakes by Range (Experiment B)</figcaption>
+            </figure>
+
+            <h3>Notebook Link</h3>
+            <p>
+                <!-- Update file name/path when you add your notebook to the repo -->
+                <a href="Copy of Lab5Cap.ipynb" target="_blank">Download / View my Colab Notebook (.ipynb)</a>
+            </p>
+
+            <h3>Key Code Snippet (with Understanding Spectrum Comments)</h3>
+            <pre><code>
+    # Step 8: Create scatter plot - Magnitude vs Depth
+    plt.figure(figsize=(10, 6))
+    plt.scatter(df['mag'], df['depth'], alpha=0.5, edgecolors='k', linewidth=0.5)
+    plt.xlabel('Magnitude', fontsize=12)
+    plt.ylabel('Depth (km)', fontsize=12)
+    plt.title('Earthquake Magnitude vs Depth', fontsize=14, fontweight='bold')
+    plt.gca().invert_yaxis()  # Invert y-axis so deeper earthquakes appear lower
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.show()
+    # I understand the basic idea of plotting magnitude vs depth.
+# However, I would not have known to invert the y-axis without AI,
+# even though it makes more sense for depth.
+            </code></pre>
+            <pre><code>
+# Define bins and labels for magnitude categories
+    bins = [0, 4, 5, 6, float('inf')]
+    labels = ['<4', '4-5', '5-6', '6+']
+        # I initially accepted the default magnitude bins (<4, 4–5, 5–6, 6+),
+# but after testing the output I realized my dataset already only includes 6+ earthquakes.
+# This required a refinement prompt to create more meaningful bins.
+
+                </code></pre>
+        </section>
+
+        <!-- =========================
+             VIBE CODING GUIDELINES
+        ========================== -->
+        <section>
+            <h2>My Vibe Coding Guidelines</h2>
+            <ul>
+                <li>I will not publish AI-generated code that I cannot read, explain, and modify.</li>
+                <li>I will test features for accessibility (keyboard navigation, ARIA states, visible focus).</li>
+                <li>I will treat AI as a starting point, then refine for clarity, correctness, and design consistency.</li>
+                <li>I will verify file paths and filenames carefully (especially capitalization and spaces).</li>
+                <li>I will document prompts and changes so the AI contribution is transparent.</li>
+            </ul>
+        </section>
+
+        <!-- =========================
+             REFLECTION (PLACEHOLDER)
+        ========================== -->
+        <section>
+            <h2>Process Evaluation </h2>
+            <p>
+                AI was most helpful in speeding up structure. It handled syntax-heavy parts and gave me a strong starting point in both JavaScript and Python. Especially for the spotlight feature, which involved buttons and animations, it would have taken me much longer to build that from scratch.
+
+AI was less helpful when context mattered. For example, the first magnitude bin chart technically worked, but it didn’t make sense for my dataset. I had to step back and recognize that problem myself. There were also small issues, like image file paths, that were easier to fix manually instead of regenerating the entire script. Sometimes AI would only apply changes to one file instead of the whole portfolio, which meant I had to prompt it again.
+
+In this process, my role became more about direction and judgment. AI can generate code quickly, but it doesn’t decide what makes sense visually or conceptually. Choosing to build a spotlight section, deciding what charts to create, and recognizing when something didn’t look right were all still my decisions.
+            </p>
+        
+        </section>
+        <section>
+            <h2>Ethical & Pedagogical Considerations </h2>
+            <p>
+              Vibe coding definitely makes development faster. It helped me build features in JavaScript that I would not yet feel confident writing from scratch. At the same time, if I had simply copied the code without reading it, I wouldn’t have learned anything. The important part was reviewing every line, testing it, and making changes.
+
+In an academic setting, proper attribution means being honest about using AI and documenting prompts and changes. I should not submit code I cannot explain. In professional settings, AI may be common, but understanding what the code does is still necessary.
+
+Going forward, my personal guidelines are:
+
+<ul>
+<li>I will not publish code I can’t read and explain.</li>
+<li>I will use AI to speed up structure but still test and edit it myself.</li>
+<li>I will focus on being clear and intentional with my prompts.</li>
+<li>I will treat AI as a tool, not a replacement for learning.</li>
+
+
+</ul>
+
+Overall, this lab showed me that AI is powerful and efficient, but the real skill is knowing how to guide it, question it, and improve what it produces.
+            </p>
+        </section>
+    </main>
+
+      <footer>
         <p><a href="https://github.com/reesebraun/dcda-portfolio">View Repository on GitHub</a></p>
         <p>&copy; 2026 Reese Braun | DCDA 40833 | TCU</p>
     </footer>
