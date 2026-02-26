@@ -1,199 +1,261 @@
+"""
+hometown_map.py
+Reads a CSV of hometown locations, geocodes each address with the
+Mapbox Geocoding API v6, and builds an interactive Folium map with:
+  • a custom Mapbox basemap
+  • category-specific marker colors + icons
+  • popups containing name, description, and an image (WEB URL)
+  • a title + legend overlay
 
-import base64
+Requirements:
+    pip install pandas requests folium
+"""
+
 import os
+import sys
 import time
-import requests
-import pandas as pd
 import folium
-from folium.map import Popup
+import pandas as pd
+import requests
 
-# -----------------------------
-# 1) CONFIG: Fill these in
-# -----------------------------
-MAPBOX_ACCESS_TOKEN = "pk.eyJ1IjoicmVlc2VicmF1biIsImEiOiJjbWx0cHBnZTYwMnBlM2ZwdjQxNmQwZzltIn0.Nr9nHuokI7a96ch9D26mdgE"
-MAPBOX_USERNAME = "YOUR_USERNAME"
-MAPBOX_STYLE_ID = "YOUR_STYLE_ID"  # the part after /styles/username/
-CSV_PATH = "Lab6_Hometown_Locations.csv"
+# ============================================================
+# CONFIGURATION — edit these three values before running
+# ============================================================
+MAPBOX_ACCESS_TOKEN = "pk.eyJ1IjoicmVlc2VicmF1biIsImEiOiJjbWx0cHBnZTYwMnBlM2ZwdjQxNmQwZzltIn0.Nr9nHuokI7a96ch9D26mdg"
+MAPBOX_USERNAME = "reesebraun"
+MAPBOX_STYLE_ID = "cmm2t33un003q01rwa56h79q9"  # from mapbox://styles/reesebraun/cmm2t33un003q01rwa56h79q9
+
+CSV_PATH = "Lab6_HometownMap.csv"
 OUTPUT_HTML = "pearland_hometown_map.html"
 
-# Mapbox tiles URL (Raster tiles)
 TILES_URL = (
-    f"mapbox://styles/reesebraun/cmm2t33un003q01rwa56h79q9"
-    "{z}/{x}/{y}@2x?access_token=" + MAPBOX_ACCESS_TOKEN
+    f"https://api.mapbox.com/styles/v1/{MAPBOX_USERNAME}/{MAPBOX_STYLE_ID}/tiles/256/"
+    "{z}/{x}/{y}@2x"
+    f"?access_token={MAPBOX_ACCESS_TOKEN}"
 )
 
-# -----------------------------
-# 2) Helpers
-# -----------------------------
-def geocode_address(address: str, access_token: str):
-    """
-    Forward geocode an address using Mapbox Geocoding API (v6).
-    Returns (lat, lon) or (None, None) if not found.
-    """
-    url = "https://api.mapbox.com/search/geocode/v6/forward"
-    params = {
-        "q": address,
-        "access_token": access_token,
-        "limit": 1,
-    }
-    r = requests.get(url, params=params, timeout=20)
-    r.raise_for_status()
-    data = r.json()
+# ============================================================
+# ICON + COLOUR MAPPING (type → marker style)
+# Font Awesome icons via folium.Icon(..., prefix="fa")
+# ============================================================
+TYPE_STYLE = {
+    "restaurant": {"color": "red", "icon": "utensils"},
 
-    features = data.get("features", [])
-    if not features:
+    "coffee shop": {"color": "cadetblue", "icon": "coffee"},
+
+    "park": {"color": "darkgreen", "icon": "tree"},
+
+    "shop": {"color": "purple", "icon": "shopping-bag"},
+
+    "shopping center": {"color": "darkpurple", "icon": "shopping-bag"},
+
+    "school": {"color": "blue", "icon": "graduation-cap"},
+
+    "golfcourse": {"color": "lightgreen", "icon": "flag"},
+
+    "activities": {"color": "orange", "icon": "star"},
+    
+    "church": {"color": "lightblue", "icon": "place-of-worship"},
+    "bar": {"color": "darkred", "icon": "glass-martini"},
+
+    "recreational center": {"color": "beige", "icon": "futbol"},
+    "fitness studio": {"color": "pink", "icon": "dumbbell"},
+    "salon": {"color": "lightred", "icon": "cut"},
+}
+
+DEFAULT_STYLE = {"color": "gray", "icon": "map-marker-alt"}
+
+
+def style_for_type(place_type):
+    key = (place_type or "").strip().lower()
+    return TYPE_STYLE.get(key, DEFAULT_STYLE)
+
+
+# ============================================================
+# HELPER FUNCTIONS
+# ============================================================
+def geocode_address(address):
+    """Mapbox Geocoding API v6 forward geocode. Returns (lat, lon) or (None, None)."""
+    url = "https://api.mapbox.com/search/geocode/v6/forward"
+    params = {"q": address, "access_token": MAPBOX_ACCESS_TOKEN, "limit": 1}
+
+    try:
+        r = requests.get(url, params=params, timeout=15)
+        r.raise_for_status()
+        data = r.json()
+        features = data.get("features", [])
+        if not features:
+            print(f"  ⚠  No geocode results for: {address}")
+            return None, None
+
+        lon, lat = features[0]["geometry"]["coordinates"]
+        return lat, lon
+
+    except Exception as e:
+        print(f"  ⚠  Geocoding error for '{address}': {e}")
         return None, None
 
-    # v6 returns geometry with coordinates [lon, lat]
-    coords = features[0]["geometry"]["coordinates"]
-    lon, lat = coords[0], coords[1]
-    return lat, lon
 
-
-def image_to_data_uri(image_path: str):
-    """
-    Converts a local image file into a data URI string so it can display in a Folium popup.
-    If file doesn't exist, returns None.
-    """
-    if not image_path or not os.path.exists(image_path):
-        return None
-
-    ext = os.path.splitext(image_path)[1].lower().replace(".", "")
-    if ext not in ["jpg", "jpeg", "png", "webp"]:
-        return None
-
-    with open(image_path, "rb") as f:
-        encoded = base64.b64encode(f.read()).decode("utf-8")
-
-    mime = "jpeg" if ext in ["jpg", "jpeg"] else ext
-    return f"data:image/{mime};base64,{encoded}"
-
-
-def icon_color_for_type(place_type: str) -> str:
-    """
-    Maps your location 'type' to Folium marker colors.
-    Edit these categories however you want.
-    """
-    t = (place_type or "").strip().lower()
-
-    mapping = {
-        "park": "darkgreen",
-        "nature": "green",
-        "restaurant": "red",
-        "food": "red",
-        "coffee": "cadetblue",
-        "cafe": "cadetblue",
-        "shopping": "purple",
-        "school": "blue",
-        "cultural": "orange",
-        "museum": "orange",
-        "memory": "pink",
-    }
-    return mapping.get(t, "gray")
-
-
-def build_popup_html(name: str, description: str, image_data_uri: str | None):
-    """
-    Creates clean popup HTML with optional image.
-    """
-    safe_name = name or "Location"
-    safe_desc = description or ""
-
-    img_html = ""
-    if image_data_uri:
-        img_html = f"""
-        <div style="margin-top:8px;">
-          <img src="{image_data_uri}" style="width:220px; max-width:100%; border-radius:10px;">
+def build_popup_html(name, description, image_url=""):
+    """Popup HTML with name, description, and an image loaded from a WEB URL."""
+    img_block = ""
+    if isinstance(image_url, str) and image_url.strip():
+        img_block = f"""
+        <div style="margin-top:10px;">
+            <img src="{image_url}" style="width:240px; max-width:100%; border-radius:10px;">
         </div>
         """
 
-    html = f"""
-    <div style="width:250px; font-family: Arial, sans-serif;">
-      <h4 style="margin:0 0 6px 0;">{safe_name}</h4>
-      <div style="font-size: 13px; line-height: 1.35;">{safe_desc}</div>
-      {img_html}
+    return f"""
+    <div style="width:260px; font-family: Arial, sans-serif;">
+        <h4 style="margin:0 0 6px 0;">{name}</h4>
+        <div style="font-size:13px; line-height:1.35;">{description}</div>
+        {img_block}
     </div>
     """
-    return html
 
 
-# -----------------------------
-# 3) Main Script
-# -----------------------------
+def add_title(map_obj, title_text):
+    """Fixed title banner at top center."""
+    title_html = f"""
+    <div style="
+        position: fixed;
+        top: 18px; left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+        background: rgba(255,255,255,0.92);
+        padding: 10px 18px;
+        border-radius: 14px;
+        font-size: 22px;
+        font-weight: 700;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+        border: 2px solid rgba(111,143,134,0.35);
+        font-family: Arial, sans-serif;
+    ">
+      {title_text}
+    </div>
+    """
+    map_obj.get_root().html.add_child(folium.Element(title_html))
+
+
+def add_legend(map_obj, legend_title, legend_items):
+    """Legend box in bottom-left (no duplicates)."""
+    rows = ""
+    for label, color, icon in legend_items:
+        rows += f"""
+        <div style="display:flex; align-items:center; margin:6px 0;">
+          <div style="
+              width:14px; height:14px; border-radius:50%;
+              background:{color};
+              border:1px solid rgba(0,0,0,0.25);
+              margin-right:10px;"></div>
+          <span style="font-size:14px;">{label}</span>
+          <span style="margin-left:auto; font-size:12px; opacity:0.7;">{icon}</span>
+        </div>
+        """
+
+    legend_html = f"""
+    <div style="
+        position: fixed;
+        bottom: 24px; left: 24px;
+        z-index: 9999;
+        background: rgba(255,255,255,0.92);
+        padding: 14px 16px;
+        border-radius: 12px;
+        width: 270px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+        border: 2px solid rgba(111,143,134,0.35);
+        font-family: Arial, sans-serif;
+    ">
+      <div style="font-weight:700; font-size:16px; margin-bottom:8px;">
+        {legend_title}
+      </div>
+      <div style="max-height:220px; overflow:auto;">
+        {rows}
+      </div>
+    </div>
+    """
+    map_obj.get_root().html.add_child(folium.Element(legend_html))
+
+
+# ============================================================
+# MAIN
+# ============================================================
 def main():
+    if not os.path.isfile(CSV_PATH):
+        sys.exit(f"❌  CSV not found: {CSV_PATH}")
+
     df = pd.read_csv(CSV_PATH)
+    df.columns = [c.strip().lower() for c in df.columns]
 
-    # Check required columns
-    required_cols = {"name", "address", "type", "description", "image"}
-    missing = required_cols - set(df.columns.str.lower())
-    # If user's CSV columns have exact names, normalize for safety:
-    df.columns = [c.lower().strip() for c in df.columns]
-
+    required_cols = {"name", "address", "type", "description", "image_url"}
     missing = required_cols - set(df.columns)
     if missing:
-        raise ValueError(f"CSV is missing required columns: {missing}")
+        sys.exit(f"❌  CSV is missing required columns: {missing}")
 
-    # Geocode (test with first 2–3 rows if you want)
-    lats, lons = [], []
-    for i, row in df.iterrows():
-        address = str(row["address"])
-        lat, lon = geocode_address(address, MAPBOX_ACCESS_TOKEN)
-        lats.append(lat)
-        lons.append(lon)
+    print(f"📄  Loaded {len(df)} locations from {CSV_PATH}\n")
 
-        # gentle rate limit so Mapbox doesn't get annoyed
+    # Geocode
+    latitudes, longitudes = [], []
+    for idx, row in df.iterrows():
+        address = str(row["address"]).strip()
+        print(f"  Geocoding ({idx + 1}/{len(df)}): {address}")
+        lat, lon = geocode_address(address)
+        latitudes.append(lat)
+        longitudes.append(lon)
         time.sleep(0.15)
 
-    df["lat"] = lats
-    df["lon"] = lons
+    df["lat"] = latitudes
+    df["lon"] = longitudes
 
-    # Drop rows that failed geocoding
-    df_ok = df.dropna(subset=["lat", "lon"]).copy()
-    if df_ok.empty:
-        raise RuntimeError("No locations were successfully geocoded. Check addresses / token.")
+    df_valid = df.dropna(subset=["lat", "lon"]).copy()
+    print(f"\n✅  Successfully geocoded {len(df_valid)} / {len(df)} locations\n")
 
-    # Center map on average coords (Pearland-ish)
-    center_lat = df_ok["lat"].mean()
-    center_lon = df_ok["lon"].mean()
+    if df_valid.empty:
+        sys.exit("❌  No addresses could be geocoded. Check your addresses and token.")
 
-    # Create Folium map with custom Mapbox tiles
-    m = folium.Map(
-        location=[center_lat, center_lon],
-        zoom_start=12,
-        tiles=None
-    )
+    # Create map
+    centre_lat = df_valid["lat"].mean()
+    centre_lon = df_valid["lon"].mean()
 
+    m = folium.Map(location=[centre_lat, centre_lon], zoom_start=12, tiles=None)
+
+    # Custom basemap
     folium.TileLayer(
         tiles=TILES_URL,
-        attr="Mapbox",
-        name="Custom Basemap",
+        attr="© Mapbox © OpenStreetMap",
+        name="Custom Mapbox Basemap",
         overlay=False,
         control=False,
-        max_zoom=18
+        max_zoom=19,
     ).add_to(m)
 
-    # Add markers
-    for _, row in df_ok.iterrows():
+    # Title + legend overlays
+    add_title(m, "📍 Pearland Favorites Map")
+    add_legend(m, "Legend", TYPE_STYLE)
+
+    # Markers
+    for _, row in df_valid.iterrows():
         name = row["name"]
         description = row["description"]
         place_type = row["type"]
-        image_path = row["image"]
+        image_url = row.get("image_url", "")
 
-        img_uri = image_to_data_uri(image_path)
-        popup_html = build_popup_html(name, description, img_uri)
+        popup_html = build_popup_html(name, description, image_url)
+        popup = folium.Popup(popup_html, max_width=320)
 
-        popup = Popup(popup_html, max_width=300)
+        st = style_for_type(place_type)
 
         folium.Marker(
             location=[row["lat"], row["lon"]],
-            popup=popup,
             tooltip=name,
-            icon=folium.Icon(color=icon_color_for_type(place_type), icon="info-sign"),
+            popup=popup,
+            icon=folium.Icon(color=st["color"], icon=st["icon"], prefix="fa"),
         ).add_to(m)
 
-    # Save HTML
+    # Save
     m.save(OUTPUT_HTML)
-    print(f"✅ Map saved to {OUTPUT_HTML}")
+    print(f"🗺️  Map saved to {OUTPUT_HTML}")
 
 
 if __name__ == "__main__":
