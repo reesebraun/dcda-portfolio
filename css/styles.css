@@ -823,3 +823,16 @@ figure img {
   display: block;
   margin: 0 auto;
 }
+.inspiration-gallery {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.inspiration-gallery img {
+    width: 260px;        /* adjust if you want slightly bigger/smaller */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}

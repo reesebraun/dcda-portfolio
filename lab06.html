@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hometown Map | Reese Braun</title>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Optional: tiny bit of page-specific styling (safe to keep here) -->
+  <style>
+    .map-embed {
+      width: 100%;
+      height: 650px;
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      background: #fff;
+    }
+
+    .callout {
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin: 16px 0;
+    }
+
+    .deliverables ul {
+      margin-top: 8px;
+    }
+
+    .small-note {
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation: Links to all portfolio pages -->
+  <nav>
+    <!-- Hamburger button (hidden on desktop) -->
+    <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lab02.html">AI Evaluation</a></li>
+      <li><a href="lab03.html">Tufte Critique</a></li>
+      <li><a href="lab04.html">Tableau Viz</a></li>
+      <li><a href="lab05.html">Vibe Coding</a></li>
+      <li><a href="lab06.html">Hometown Map</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Lab 6: Hometown Map</h1>
+    <p>DCDA 40833 Skills Portfolio | Spring 2026</p>
+  </header>
+
+  <main>
+    <!-- Section 1: Embedded interactive map -->
+    <section>
+      <h2>Interactive Map</h2>
+      <p class="small-note">
+        This map uses a custom Mapbox basemap style (designed in Mapbox Studio), geocoded hometown locations,
+        and a Folium web map with category-based icons, popups, and a legend.
+      </p>
+
+      <!-- IMPORTANT: Update src path to wherever you saved your Folium HTML -->
+      <iframe
+        class="map-embed"
+        src="pearland_hometown_map.html"
+        title="Pearland Favorites Interactive Map"
+        loading="lazy">
+      </iframe>
+
+      <div class="callout">
+        <strong>Trouble viewing the embedded map?</strong>
+        <p class="small-note">
+          Open it directly here:
+          <a href="pearland_hometown_map.html" target="_blank" rel="noopener">pearland_hometown_map.html</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2: Reflection -->
+    <section>
+      <h2>Written Reflection</h2>
+
+      <h3>1. Design Inspiration</h3>
+      <p>
+        My basemap design was inspired by three images: a muted oil painting of a pear, a soft green floral artwork on an ivory background, and a coastal marsh landscape at golden hour. The pear felt especially fitting since the project focuses on Pearland, so the connection was both literal and personal. I leaned into green not only because of that connection, but also because green is genuinely my favorite color. Instead of using bright or pastel greens, I chose a soft monochrome sage palette. My original plan involved lighter pastel tones, but they didn’t show up well on screen and felt washed out against roads and labels. The monochrome direction felt calmer and easier on the eyes.
+      </p>
+      <p>
+        The floral artwork influenced my decision to use a warm ivory land base, which gives the map a paper-like, composed quality instead of a harsh digital look. The coastal marsh image helped guide my water tones and layered greens, grounding the palette in the Gulf Coast landscape. For roads, I used darker sage tones for motorways and primary roads to maintain hierarchy, while keeping local roads white with subtle casing. Labels were styled in a muted green-gray rather than black to reduce contrast and keep everything within the same color family. Overall, I aimed for a cohesive, nature-inspired design that felt intentional and balanced.
+      </p>
+
+      <h3>2. Cartographic Challenges</h3>
+      <p>
+       One of the main cartographic challenges was designing the map to work across multiple zoom levels. At smaller scales, roads became too dark and visually heavy, and some layers overlapped in ways that made the map feel cluttered. I adjusted road weights and colors several times before finding a balance that maintained hierarchy without overpowering the design. I also turned off some minor road levels and neighborhood labels to simplify the map when zoomed out. This helped keep the overall look clean and readable.
+      </p>
+      <p>
+        Labels were another challenge. Some were too bold at certain scales, while others disappeared when zooming in or out. It took several rounds of adjusting size, color, and visibility settings to make the labeling feel consistent. The legend was also tricky, especially when trying to avoid duplicate categories and make it visually match the rest of the map. Balancing clarity and aesthetic restraint required more iteration than I expected.
+      </p>
+
+      <h3>3. Technical Challenges</h3>
+      <p>
+        The technical side of the project was more difficult than I initially anticipated. Writing and modifying the Python script to integrate my custom Mapbox style into a Folium map involved multiple syntax and indentation errors. I also struggled with generating a clean legend and customizing marker icons without creating duplicates or breaking the script.
+      </p>
+        <p>
+            I used AI tools, including Claude Sonnet, to help generate parts of the code and troubleshoot errors. However, the responses were not always accurate. Some color values were wrong, loops were misplaced, and I encountered repeated error messages while running the script. I had to slow down and actually read through the code to understand what each section was doing. Fixing those issues helped me feel more confident in modifying the script rather than just copying and running it.
+        </p>
+        <p>
+            Overall, this project strengthened both my design thinking and my technical skills. It pushed me to make intentional stylistic decisions while also becoming more comfortable debugging and adjusting Python code on my own.
+        </p>
+
+    <!-- Section 3: Inspiration images -->
+    <section>
+    <h2>Design Inspiration</h2>
+
+    <div class="inspiration-gallery">
+        <img src="images/lab6image4.jpg" alt="Oil painting of a green pear with soft muted tones.">
+        <img src="images/Screenshot 2026-03-02 at 4.11.45 PM.png" alt="Vintage botanical print on warm ivory background.">
+        <img src="images/lab6images.jpg" alt="Coastal marsh landscape at golden hour.">
+    </div>
+</section>
+
+      <!-- Optional additional images:
+      <figure>
+        <img src="images/inspiration-2.png" alt="Second design inspiration reference.">
+        <figcaption><strong>Reference Image 2:</strong> ...</figcaption>
+      </figure>
+      -->
+    </section>
+
+    <!-- Section 4: Deliverables + links -->
+    <section class="deliverables">
+      <h2>Project Files & Submission Items</h2>
+      <p class="small-note">
+        These links point to the files included in my repository for Lab 6.
+      </p>
+
+      <ul>
+        <li><strong>Published Mapbox style URL:</strong> <a href="mapbox://styles/reesebraun/cmm2t33un003q01rwa56h79q9" target="_blank" rel="noopener">mapbox_style_url.txt</a></li>
+        <li><strong>CSV dataset:</strong> <a href="Lab6_HometownMap.csv" target="_blank" rel="noopener">hometown_locations.csv</a></li>
+        <li><strong>Python script:</strong> <a href="hometown_map.py" target="_blank" rel="noopener">hometown_map.py</a></li>
+        <li><strong>Final interactive map (HTML):</strong> <a href="pearland_hometown_map.html" target="_blank" rel="noopener">pearland_hometown_map.html</a></li>
+      </ul>
+  </main>
+
+  <footer>
+    <p><a href="https://github.com/reesebraun/dcda-portfolio">View Repository on GitHub</a></p>
+    <p>&copy; 2026 Reese Braun | DCDA 40833 | TCU</p>
+  </footer>
+
+  <!-- Hamburger menu script -->
+  <script src="js/menu.js"></script>
+</body>
+</html>
