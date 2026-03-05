@@ -12,12 +12,13 @@
     <!-- Navigation: Links to all portfolio pages -->
     <nav>
         <!-- Hamburger button (hidden on desktop) -->
+         <!-- Here is the updated hamburger button, used for all devices and works for all lab pages.-->
         <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
         </button>
-        
+        <!-- navigation buttons at top with respective lab pages-->
         <ul class="nav-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="lab02.html">AI Evaluation</a></li>
@@ -30,7 +31,7 @@
 
     <!-- Header: Your name and course info -->
      <!-- Updated the header to display my name so visitors immediately know
-     whose portfolio this is -->
+     whose portfolio this is and for what class/ date-->
     <header>
         <h1>Reese Braun</h1>
         <p>DCDA 40833 Skills Portfolio | Spring 2026</p>
@@ -49,6 +50,7 @@
         </section>
 
         <!-- Featured Project Spotlight Section -->
+         <!-- I created this in Lab 5 "Vibe Coding" where i got to us AI Claude Sonnet to implment a cool spotlight section of my protfolio-->
         <section id="featured-project">
             <h2>Featured Project Spotlight</h2>
             
@@ -66,9 +68,13 @@
                         <p id="featuredDescription">A comprehensive analysis of AI tools and their capabilities, exploring how artificial intelligence is transforming digital culture and everyday workflows.</p>
                         <a id="featuredLink" href="lab02.html" class="view-project-btn">View Project</a>
                     </div>
+                    <!---> buttons and navigation links can be found in spotlight.js -->
                 </div>
 
                 <!-- Thumbnail navigation -->
+                    <!-- I added this thumbnail navigation to make it easy for visitors to click through and view each of my lab projects in the spotlight section.-->
+                    <!-- Each button has an image preview and a label for accessibility, and they update the main featured area when clicked.-->
+                     <!-- I myself linked and named all the thumbnails, labs and descriptions.-->
                 <div class="spotlight-thumbnails">
                     <button 
                         class="thumbnail-btn active" 
@@ -90,6 +96,7 @@
                         class="thumbnail-btn" 
                         data-project="2"
                         aria-label="Show Tableau Visualization project"
+                
                     >
                         <img src="images/Screenshot 2026-02-22 at 1.31.35 PM.png" alt="">
                         <span>Tableau Viz</span>
@@ -118,7 +125,7 @@
         <section id="about">
             <h2>About Me</h2>
             <!-- TODO: Replace this placeholder content with information about yourself -->
-             
+             <!-- I bolded and italizied specific words and phrases to point out important details -->
             <p><strong>Who I am:</strong> I am a senior at Texas Christian University majoring in Environmental & Sustainability Sciences and Digital Culture & Data Analytics, with a minor in General Business. I am originally from Houston, Texas and will be graduating in May 2026.</p>
             <p><strong>My interests:</strong> I am passionate about sustainability, travel, fashion, and digital media, and I am especially interested in how culture and technology influence consumer behavior and everyday decision-making. Outside of academics, I enjoy needlepointing, listening to podcasts, and exploring visual design, which has drawn me to projects that blend creativity with storytelling. These interests are what initially attracted me to DCDA as a way to study culture through digital platforms and data.</p>
             <p><strong>What I hope to learn:</strong> Through DCDA, I want to strengthen my skills in web development, data visualization, and digital storytelling using tools like HTML, CSS, mapping platforms, and analytical frameworks. I am particularly interested in learning how to communicate complex information clearly through visuals and interactive design, and how to present data in ways that are both meaningful and engaging.</p>
@@ -127,8 +134,9 @@
      personal interests, and specific learning goals related to DCDA -->
 
             <!-- Optional: Add a photo of yourself -->
-            <figure class="viz-container">
-                <img src="images/headshot.jpg" alt="Photo of Reese Braun" width="50%" height="50%">
+             <!-- used ai to help me reduce the size of my headshot, it worked well-->
+             <figure class="viz-container headshot-container">
+                <img src="images/headshot.jpg" alt="Photo of Reese Braun" class="headshot-img">
             </figure>
     <!-- Added a profile photo to make the portfolio more personal and professional,
      and updated the alt text for accessibility -->
@@ -181,7 +189,8 @@
     <li><strong>Skill this lab shows:</strong> I can test tools systematically, compare them with a framework, and communicate limitations clearly.</li>
     <li><strong>How I can use this later:</strong> Canva for early design exploration, Claude for planning and ethical framing, and external tools and human review for final accessibility checks.</li>
   </ul>
-
+<!--Got to "vibe code" with AI to create an interactive and cool button that take you to the respective lab page -->
+<!-- I wanted to create soemthing like the project spotlight to ensure consistency across the portfolio -->
   <div class="reflection-links">
     <a href="lab02.html" class="lab-btn">View Lab 2 Page →</a>
   </div>
@@ -214,7 +223,7 @@
     <li><strong>Why it matters:</strong> In sustainability especially, visuals can unintentionally promote solutions that sound
     good but do not actually address the root of the problem.</li>
   </ul>
-
+<!-- I learned alot about bullet points and how to effectivley use them instead of paragraphs-->
   <div class="reflection-links">
     <a href="lab03.html" class="lab-btn">View Lab 3 Page →</a>
   </div>

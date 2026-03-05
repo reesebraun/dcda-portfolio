@@ -36,7 +36,7 @@ const projects = [
     },
     {        title: 'Hometown Map',
         description: 'Interactive Folium map showcasing meaningful locations from my hometown, combining geospatial data with personal storytelling and reflections.',
-        image: 'images/mapbox_image.png',
+        image: 'images/Screenshot 2026-03-04 at 7.17.00 PM.png',
         link: 'lab06.html',
         alt: 'Hometown Map project preview'
     }
