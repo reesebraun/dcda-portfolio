@@ -816,6 +816,62 @@ figure img {
     }
 }
 
+/* =========================
+   Reflection Lab Buttons
+   ========================= */
+
+.reflection-links {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.lab-btn {
+    display: inline-block;
+    padding: 0.85rem 1.75rem;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(59, 130, 246, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.lab-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.lab-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.4);
+}
+
+.lab-btn:hover::before {
+    left: 100%;
+}
+
+.lab-btn:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+.lab-btn:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 3px 6px rgba(59, 130, 246, 0.3);
+}
+
 figure img {
   max-width: 700px;   /* adjust this number if needed */
   width: 100%;

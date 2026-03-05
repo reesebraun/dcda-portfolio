@@ -163,149 +163,196 @@
 
   <p>
     <strong>What I actually did:</strong> For Lab 2, I basically treated Canva AI and Claude like “coworkers” and gave them real prompts
-    I’d use in the real world. I tested Canva AI by asking it to design a sustainability event post with accessibility constraints
+    I would use in the real world. I tested Canva AI by asking it to design a sustainability event post with accessibility constraints
     (WCAG contrast, color-blind friendly palettes, low-vision readability, alt text, and even motion sensitivity). Then I tested Claude
-    on the writing + ethics side: accessible captions, risks of AI in sustainability messaging, and whether AI can truly “guarantee” compliance.
+    on the writing and ethics side: accessible captions, risks of AI in sustainability messaging, and whether AI can truly “guarantee” compliance.
   </p>
 
   <p>
     <strong>What I learned / what surprised me:</strong> Canva AI was great for quick, polished design drafts, but it kept treating
     accessibility like a <em>style</em> choice instead of a measurable requirement. Even when I explicitly asked for WCAG AA verification,
-    it didn’t provide actual contrast proof — which honestly made me realize how easy it is for a tool to look confident without being right.
-    Claude was the opposite: it couldn’t build the visual, but it was way better at explaining the “why,” naming ethical risks like greenwashing,
-    and admitting what it couldn’t guarantee.
+    it did not provide actual contrast proof, which made me realize how easy it is for a tool to look confident without being right.
+    Claude was the opposite: it could not build the visual, but it was much better at explaining the “why” by naming ethical risks like greenwashing,
+    and admitting what it could not guarantee.
   </p>
 
   <ul>
-    <li><strong>Main takeaway:</strong> AI can speed up the first draft, but humans still own verification + accountability.</li>
+    <li><strong>Main takeaway:</strong> AI can speed up the first draft, but humans still own verification and accountability.</li>
     <li><strong>Skill this lab shows:</strong> I can test tools systematically, compare them with a framework, and communicate limitations clearly.</li>
-    <li><strong>How I’d use this later:</strong> Canva for early design exploration, Claude for planning and ethical framing, and external tools + human review for final accessibility checks.</li>
+    <li><strong>How I can use this later:</strong> Canva for early design exploration, Claude for planning and ethical framing, and external tools and human review for final accessibility checks.</li>
   </ul>
 
-  <p class="reflection-links">
-    <a href="lab02.html">View Lab 2 page</a>
-  </p>
+  <div class="reflection-links">
+    <a href="lab02.html" class="lab-btn">View Lab 2 Page →</a>
+  </div>
 </article>
 
-    <!-- LAB 3 -->
     <article class="reflection-card">
-      <h3>Lab 3 — Tufte Critique</h3>
 
-      <p>
-        <strong>Lab requirement synopsis:</strong> Critique an existing data visualization using Edward Tufte’s principles
-        (clarity, integrity, avoiding chartjunk, “effects without causes,” etc.) and support the critique with reasoning.
-      </p>
+        <!-- LAB 3 -->
+  <h3>Lab 3 — Tufte Visualization Critique</h3>
 
-      <p>
-        <strong>What I learned:</strong> This lab made me realize how easy it is for a visualization to look “convincing” while still being
-        incomplete or misleading. I learned how to separate aesthetics from accuracy, and how to explain <em>why</em> a visualization works
-        or doesn’t work using concrete critique terms instead of vibes.
-      </p>
-      <p>
-        <strong>What it demonstrates:</strong> This lab shows my ability to evaluate visual communication critically and explain design choices
-        in a way that’s grounded in an actual framework — not just personal opinion.
-      </p>
+  <p>
+    <strong>What I actually did:</strong> In this lab I analyzed a sustainability infographic about Rome’s metro system offering
+    free rides in exchange for recycling plastic bottles. Using Edward Tufte’s principles of data visualization, I evaluated
+    whether the graphic actually communicated meaningful information or simply told a persuasive story. I focused on three
+    specific critique concepts: <em>information resolution</em>, <em>effects without causes</em>, and <em>overreaching</em>.
+  </p>
 
-      <p class="reflection-links">
-        <a href="lab03.html">View Lab 3 page</a>
-        <!-- <a href="docs/lab03-written.pdf" target="_blank" rel="noopener">Full written portion</a> -->
-      </p>
-    </article>
+  <p>
+    <strong>What I learned:</strong> At first the visualization looks really convincing: bright colors, simple message, and a
+    clear reward. But once I read the article behind it, I realized how much context the graphic leaves out. The program is only
+    being tested at three metro stations, requires specific apps and bottle types, and doesn't necessarily reduce plastic
+    consumption overall. This lab helped me see how easily visuals can simplify or exaggerate a story by removing important
+    context.
+  </p>
+
+  <ul>
+    <li><strong>Main takeaway:</strong> A visualization can look informative while actually hiding important limitations.</li>
+    <li><strong>Skill this lab shows:</strong> I can apply a formal critique framework (Tufte) to evaluate whether a graphic
+    communicates data responsibly.</li>
+    <li><strong>Why it matters:</strong> In sustainability especially, visuals can unintentionally promote solutions that sound
+    good but do not actually address the root of the problem.</li>
+  </ul>
+
+  <div class="reflection-links">
+    <a href="lab03.html" class="lab-btn">View Lab 3 Page →</a>
+  </div>
+</article>
 
     <!-- LAB 4 -->
-    <article class="reflection-card">
-      <h3>Lab 4 — Tableau Visualization</h3>
+   <article class="reflection-card">
+  <h3>Lab 4 — Exploratory Data Analysis with Tableau</h3>
 
-      <p>
-        <strong>Lab requirement synopsis:</strong> Build an interactive Tableau visualization using a dataset, make intentional design decisions,
-        and communicate what the visualization shows through written interpretation.
-      </p>
+  <p>
+    <strong>What I actually did:</strong> In this lab I built an interactive Tableau dashboard using USGS earthquake data
+    showing magnitude 6+ earthquakes from 1900–2014. Instead of creating just one chart, I designed a dashboard that combines
+    a global map, a yearly trend line, a monthly comparison chart, and a scatter plot comparing earthquake depth and magnitude.
+    The goal was to explore how earthquake activity varies across both <em>space and time</em>, and to give users multiple ways
+    to investigate the data through filters and hover tooltips.
+  </p>
 
-      <p>
-        <strong>What I learned:</strong> I learned that a visualization isn’t just “put data in a chart” — it’s deciding what story the data tells,
-        what the audience should notice first, and how interaction changes understanding. Tableau also taught me how quickly design choices
-        (filters, labels, color, scale) can improve or totally ruin clarity.
-      </p>
-      <p>
-        <strong>What it demonstrates:</strong> This lab shows I can work with real datasets, build an interactive visualization, and connect the
-        visual output to an explanation (so it’s not just a pretty chart with no meaning).
-      </p>
+  <p>
+    <strong>What I learned:</strong> One of the biggest things I learned is that data visualization is really about making
+    design decisions. I had to decide how to encode information in ways that were actually readable. For example, I used color
+    to represent magnitude instead of point size because the dataset only included earthquakes above magnitude 6, so size
+    differences would not have been visually meaningful. I also learned that dashboards work best when different charts reveal
+    different patterns. The map shows spatial clustering along tectonic plate boundaries, while the scatter plot makes the
+    relationship between depth and magnitude easier to see.
+  </p>
 
-      <p class="reflection-links">
-        <a href="lab04.html">View Lab 4 page</a>
-        <!-- <a href="docs/lab04-written.pdf" target="_blank" rel="noopener">Full written portion</a> -->
-      </p>
-    </article>
+  <ul>
+    <li><strong>Main takeaway:</strong> Good visualizations display more than data, they help reveal patterns that would be hard to see otherwise.</li>
+    <li><strong>Skill this lab shows:</strong> I can design an interactive dashboard that combines spatial data, temporal trends, and comparative analysis.</li>
+    <li><strong>What surprised me:</strong> The apparent increase in earthquakes over time made me think about how improvements in monitoring technology can shape what data appears to show.</li>
+  </ul>
+
+  <p>
+    This project also reinforced how different tools serve different purposes. Tableau is excellent for exploratory visualization
+    and interactive storytelling, but tools like ArcGIS or Python are stronger for deeper spatial analysis and statistical work.
+    Understanding when to use each tool is an important skill in data analytics.
+  </p>
+
+  <div class="reflection-links">
+    <a href="lab04.html" class="lab-btn">View Lab 4 Page →</a>
+  </div>
+</article>
 
     <!-- LAB 5 -->
-    <article class="reflection-card">
-      <h3>Lab 5 — Vibe Coding</h3>
+   <article class="reflection-card">
+  <h3>Lab 5 — AI-Assisted Development (Vibe Coding)</h3>
 
-      <p>
-        <strong>Lab requirement synopsis:</strong> Use AI-assisted coding in a realistic workflow, explain what the AI generated,
-        evaluate what worked vs. didn’t, document what you changed, and reflect on learning trade-offs and attribution.
-      </p>
+  <p>
+    <strong>What I actually built:</strong> In this lab I experimented with AI-assisted coding to build new features
+    for my portfolio and analyze my earthquake dataset. I used Claude to help generate JavaScript for a
+    “Featured Project Spotlight” section on my homepage where users can click thumbnail buttons to dynamically
+    change the highlighted project without reloading the page. I also used AI in Google Colab to generate
+    Python code that cleaned and visualized my earthquake dataset from Lab 4.
+  </p>
 
-      <p>
-        <strong>What I learned:</strong> Lab 5 was honestly the most “real-world” feeling because AI can be helpful… but also annoying.
-        I learned how to debug when AI output isn’t correct, and how to ask better prompts to get cleaner, simpler code. I also learned that
-        I can’t rely on AI for understanding — I still need to explain what the code is doing in my own words if I want it to be usable.
-      </p>
-      <p>
-        <strong>What it demonstrates:</strong> This lab shows I can collaborate with AI as a tool (not a crutch), fix issues, and make design
-        choices intentionally. It also shows I understand responsible use: citing AI help and thinking about when AI should/shouldn’t be used.
-      </p>
+  <p>
+    <strong>What I learned:</strong> The biggest takeaway was realizing that AI works best as a collaborator,
+    not a final solution. Claude helped generate the initial structure for both the JavaScript feature and the
+    Python analysis, but I still had to test everything and troubleshoot issues myself. For example, when one of
+    my images would not appear in the spotlight section, the real issue ended up being a file-path formatting
+    problem that I had to correct manually. In the Python experiment, I also realized that the default magnitude
+    bins did not make sense for my dataset because it only included earthquakes above magnitude 6. Recognizing
+    and correcting that required my own understanding of the data.
+  </p>
 
-      <p class="reflection-links">
-        <a href="lab05.html">View Lab 5 page</a>
-        <!-- <a href="docs/lab05-written.pdf" target="_blank" rel="noopener">Full written portion</a> -->
-      </p>
-    </article>
+  <ul>
+    <li><strong>Main takeaway:</strong> AI can generate code quickly, but human judgment is still necessary to make sure the results actually make sense.</li>
+    <li><strong>Skill this lab shows:</strong> I can guide AI tools, debug code, and refine outputs rather than simply copying generated solutions.</li>
+    <li><strong>What surprised me:</strong> Even when AI writes most of the code, understanding the logic behind it is still essential for fixing errors and improving the design.</li>
+  </ul>
+
+  <p>
+    Overall, this project helped me understand what people mean by “vibe coding.” AI can accelerate development,
+    but the real skill is knowing how to prompt the tool effectively, evaluate what it produces, and make
+    thoughtful improvements. In that sense, the human role becomes more about direction, testing, and critical
+    thinking rather than writing every line of code from scratch.
+  </p>
+
+  <div class="reflection-links">
+    <a href="lab05.html" class="lab-btn">View Lab 5 Page →</a>
+  </div>
+</article>
 
     <!-- LAB 6 -->
     <article class="reflection-card">
-      <h3>Lab 6 — Hometown Map</h3>
+  <h3>Lab 6 — Hometown Map (Mapbox + Folium)</h3>
 
-      <p>
-        <strong>Lab requirement synopsis:</strong> Create an interactive map (Folium/Mapbox workflow) with meaningful locations,
-        incorporate design decisions, and connect the map to reflection/storytelling.
-      </p>
+  <p>
+    <strong>What I actually built:</strong> For Lab 6, I created an interactive “Hometown Favorites” map of Pearland using a custom
+    Mapbox basemap style and a Folium web map. I geocoded my locations, organized them into categories, and built a map with
+    icon-based markers, popups, and a legend. I then embedded the final map directly into my portfolio site.
+  </p>
 
-      <p>
-        <strong>What I learned:</strong> This lab taught me that mapping is both technical and personal. I learned how layering, labels,
-        and styling choices change what the user notices — and I also learned how to connect “data” to narrative by choosing locations
-        that actually mean something and writing reflections that explain why.
-      </p>
-      <p>
-        <strong>What it demonstrates:</strong> This lab shows I can combine technical mapping tools with storytelling, and that I can present
-        information spatially in a way that’s engaging and understandable (not just a map for the sake of a map).
-      </p>
+  <p>
+    <strong>What made it personal:</strong> I designed the basemap around three inspiration images: the pear painting was the
+    anchor because Pearland… pear… it just felt right. I also leaned into a soft sage/monochrome palette because (1) green is my favorite color and (2) it fit the Gulf Coast “marshy, warm, coastal” vibe I wanted. I originally tried pastels,
+    but they looked washed out on screen, so switching to the monochrome palette was a real design decision rather than a random
+    aesthetic choice.
+  </p>
 
-      <p class="reflection-links">
-        <a href="lab06.html">View Lab 6 page</a>
-        <!-- <a href="docs/lab06-written.pdf" target="_blank" rel="noopener">Full written portion</a> -->
-      </p>
-    </article>
+  <p>
+    <strong>What I learned:</strong> The biggest lesson was how much maps change across zoom levels. Roads that looked fine zoomed in
+    became way too heavy zoomed out, and labels either vanished or overwhelmed the map depending on scale. I had to keep adjusting
+    road hierarchy, label styling, and visibility rules to make it readable without losing the calm look I was going for. On the
+    technical side, I also got more comfortable debugging Python because my script kept breaking (indentation, loops, legend issues,
+    marker duplication). AI helped sometimes, but it also introduced errors so I had to slow down and actually understand what each
+    code block was doing.
+  </p>
+
+  <ul>
+    <li><strong>Main takeaway:</strong> Cartography is design and problem-solving at the same time. It is not just “make it pretty.”</li>
+    <li><strong>Skill this lab shows:</strong> I can combine visual design decisions (Mapbox styling) with technical implementation (Folium & Python) and publish it on the web.</li>
+    <li><strong>What I’m proud of:</strong> I stuck with the debugging until the map worked and still ended with a style that feels cohesive and intentional.</li>
+  </ul>
+
+  <div class="reflection-links">
+    <a href="lab06.html" class="lab-btn">View Lab 6 Page →</a>
+  </div>
+</article>
   </div>
 
   <!-- =========================
        OVERALL GROWTH
        ========================= -->
 
-  <h3>Overall Growth</h3>
-  <p>
-    <strong>Biggest growth area:</strong> I’ve gotten more confident moving between “creative” and “technical” work — like writing reflections,
-    designing layouts, embedding visuals, and troubleshooting code when something breaks.
-  </p>
-  <p>
-    <strong>Challenges I overcame:</strong> The most consistent challenge has been debugging (especially file paths, images, and styling issues).
-    I’ve learned to slow down, check the basics first, and make small changes instead of randomly changing everything and hoping it works.
-  </p>
-  <p>
-    <strong>Looking ahead:</strong> I want to keep improving the visual consistency of my site (spacing, typography, and section flow),
-    and I also want to get better at making embedded content feel like it belongs on the page instead of looking “pasted in.”
-  </p>
+<h3>Overall Growth</h3>
 
+<p>
+  <strong>Biggest growth area:</strong> Over the course of this portfolio, I have become more confident moving between creative and technical work. I have had to design layouts, write reflections, embed visualizations, and troubleshoot code when something inevitably breaks. Learning how these pieces connect (design, data, and code) has helped me feel more comfortable building and refining my own projects.
+</p>
+
+<p>
+  <strong>Challenges I overcame:</strong> The most consistent challenge was debugging. Small issues like image paths, formatting errors, or styling conflicts could completely break a page. Instead of getting frustrated, I learned to slow down, check the basics first, and make smaller adjustments until I found the problem.
+</p>
+
+<p>
+  <strong>Looking ahead:</strong> Going forward, I want to continue improving the visual consistency of my site, especially with spacing, typography, and how sections flow together. I would also like to get better at integrating interactive elements so embedded visualizations and maps feel like a natural part of the page rather than something that was simply dropped in.
+</p>
   <!-- 
     NOTE TO SELF:
     If I add separate “written-only” pages or PDFs for each lab, I should update the links above.
