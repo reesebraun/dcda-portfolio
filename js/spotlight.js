@@ -28,11 +28,16 @@ const projects = [
         link: 'lab04.html',
         alt: 'Tableau Visualization project preview'
     },
-    {
-        title: 'Hometown Map',
+    {        title: 'Vibe Coding',
+        description: 'This lab explores "vibe coding," where AI is used as a coding partner to generate, test, and refine features while reflecting on what I understand, modify, and question in the process.',
+        image: 'images/Screenshot 2026-03-04 at 7.33.43 PM.png',
+        link: 'lab05.html',
+        alt: 'Vibe Coding project preview'
+    },
+    {        title: 'Hometown Map',
         description: 'Interactive Folium map showcasing meaningful locations from my hometown, combining geospatial data with personal storytelling and reflections.',
         image: 'images/mapbox_image.png',
-        link: 'hometown-map.html',
+        link: 'lab06.html',
         alt: 'Hometown Map project preview'
     }
 ];

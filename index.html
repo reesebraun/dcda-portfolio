@@ -97,10 +97,17 @@
                     <button 
                         class="thumbnail-btn" 
                         data-project="3"
-
+                        aria-label="Show Vibe Coding project"
+                    >
+                        <img src="images/Screenshot 2026-03-04 at 7.33.43 PM.png" alt="">
+                        <span>Vibe Coding</span>
+                    </button>
+                    <button 
+                        class="thumbnail-btn" 
+                        data-project="4"
                         aria-label="Show Hometown Map project"
                     >
-                        <img src="images/mapbox_image.png" alt="">
+                        <img src="images/Screenshot 2026-03-04 at 7.17.00 PM.png" alt="">
                         <span>Hometown Map</span>
                     </button>
                 </div>
@@ -127,65 +134,184 @@
      and updated the alt text for accessibility -->
         </section>
 
-        <!-- Portfolio Section: Links to all lab pages -->
-        <section id="portfolio">
-            <h2>My Work</h2>
-            <p>Click on any card below to view that lab assignment. Focus of actual labs may change over the course of the semester:</p>
 
-            <!-- Portfolio Grid: Cards linking to each lab page -->
-            <div class="portfolio-grid">
+      <!-- Reflection Section: Expanded reflection to match Skills Portfolio requirements -->
+<section id="reflection">
+  <h2>Semester Reflection</h2>
 
-                <!-- Lab 2: AI Tool Evaluation -->
-                <a href="lab02.html" class="portfolio-card">
-                    <h3>AI Tool Evaluation</h3>
-                    <span class="lab-tag">Lab 2</span>
-                    <p>Analysis of AI tools and their capabilities, exploring how artificial intelligence is changing digital culture.</p>
-                </a>
+  <!-- 
+    PURPOSE OF THIS SECTION:
+    This reflection is intentionally longer than a typical "about" paragraph.
+    It documents: (1) what each lab required, (2) what I learned, and (3) what each lab shows about my skills.
+    This directly matches the Skills Portfolio assignment instructions.
+  -->
 
-                <!-- Lab 3: Tufte Critique -->
-                <a href="lab03.html" class="portfolio-card">
-                    <h3>Tufte Critique</h3>
-                    <span class="lab-tag">Lab 3</span>
-                    <p>Critical analysis of a data visualization using Edward Tufte's principles of graphical excellence.</p>
-                </a>
+  <p>
+    This portfolio has become more than just a place to “turn in” labs. It serves as a timeline of how I have built skills in
+    web design, data visualization, and communicating ideas clearly online. Below is a breakdown of what each lab required,
+    what I learned from it, and what I think it demonstrates about my abilities.
+  </p>
 
-                <!-- Lab 4: Tableau Visualization -->
-                <a href="lab04.html" class="portfolio-card">
-                    <h3>Tableau Visualization</h3>
-                    <span class="lab-tag">Lab 4</span>
-                    <p>Interactive data visualization created with Tableau Public, exploring patterns in real-world data.</p>
-                </a>
+  <!-- =========================
+       LAB-BY-LAB BREAKDOWN
+       ========================= -->
 
-                <!-- Lab 5: Vibe Coding -->
-                <a href="lab05.html" class="portfolio-card">
-                    <h3>Vibe Coding</h3>
-                    <span class="lab-tag">Lab 5</span>
-                    <p>Content based on Lab 5 assignment.</p>
-                </a>
+  <div class="reflection-labs">
+    <!-- LAB 2 -->
+    <article class="reflection-card">
+  <h3>Lab 2 — AI Tool Evaluation (Canva AI + Claude)</h3>
 
-                <!-- Lab 6: Hometown Map -->
-                <a href="lab06.html" class="portfolio-card">
-                    <h3>Hometown Map</h3>
-                    <span class="lab-tag">Lab 6</span>
-                    <p>Interactive Folium map showcasing meaningful locations from my hometown with personal reflections.</p>
-                </a>
+  <p>
+    <strong>What I actually did:</strong> For Lab 2, I basically treated Canva AI and Claude like “coworkers” and gave them real prompts
+    I’d use in the real world. I tested Canva AI by asking it to design a sustainability event post with accessibility constraints
+    (WCAG contrast, color-blind friendly palettes, low-vision readability, alt text, and even motion sensitivity). Then I tested Claude
+    on the writing + ethics side: accessible captions, risks of AI in sustainability messaging, and whether AI can truly “guarantee” compliance.
+  </p>
 
-            </div>
-        </section>
+  <p>
+    <strong>What I learned / what surprised me:</strong> Canva AI was great for quick, polished design drafts, but it kept treating
+    accessibility like a <em>style</em> choice instead of a measurable requirement. Even when I explicitly asked for WCAG AA verification,
+    it didn’t provide actual contrast proof — which honestly made me realize how easy it is for a tool to look confident without being right.
+    Claude was the opposite: it couldn’t build the visual, but it was way better at explaining the “why,” naming ethical risks like greenwashing,
+    and admitting what it couldn’t guarantee.
+  </p>
 
-        <!-- Reflection Section: Optional semester reflection -->
-         <!-- Started the semester reflection section to document what I am learning
-     and challenges I am overcoming throughout the course -->
+  <ul>
+    <li><strong>Main takeaway:</strong> AI can speed up the first draft, but humans still own verification + accountability.</li>
+    <li><strong>Skill this lab shows:</strong> I can test tools systematically, compare them with a framework, and communicate limitations clearly.</li>
+    <li><strong>How I’d use this later:</strong> Canva for early design exploration, Claude for planning and ethical framing, and external tools + human review for final accessibility checks.</li>
+  </ul>
 
-        <section id="reflection">
-            <h2>Semester Reflection</h2>
-            <!-- TODO: After completing all labs, write a reflection on your growth -->
-            <p><strong>What I learned:</strong> I learned how to set up a personal portfolio using GitHub, VS Code, and GitHub Pages, and how these tools work together to publish a website. I also became more comfortable editing HTML and understanding how small changes in code affect the structure and content of a webpage.</p>
-            <p><strong>Challenges I overcame:</strong> One challenge I faced was uploading my profile photo and adjusting its size so it fit properly within the page layout, but through troubleshooting file paths and experimenting with CSS styling, I was able to resolve the issue and improve the overall design. </p>
-            <p><strong>How I grew:</strong> My understanding of digital culture and data analytics has evolved as I've learned to use tools like Tableau and Folium to visualize data and tell stories with numbers. I've also become more confident in my ability to create and maintain a professional online presence.</p>
-            <p><strong>Looking ahead:</strong> I plan to continue building on these skills by exploring more advanced data visualization techniques and learning how to integrate interactive elements into web pages.</p>
-        </section>
-    </main>
+  <p class="reflection-links">
+    <a href="lab02.html">View Lab 2 page</a>
+  </p>
+</article>
+
+    <!-- LAB 3 -->
+    <article class="reflection-card">
+      <h3>Lab 3 — Tufte Critique</h3>
+
+      <p>
+        <strong>Lab requirement synopsis:</strong> Critique an existing data visualization using Edward Tufte’s principles
+        (clarity, integrity, avoiding chartjunk, “effects without causes,” etc.) and support the critique with reasoning.
+      </p>
+
+      <p>
+        <strong>What I learned:</strong> This lab made me realize how easy it is for a visualization to look “convincing” while still being
+        incomplete or misleading. I learned how to separate aesthetics from accuracy, and how to explain <em>why</em> a visualization works
+        or doesn’t work using concrete critique terms instead of vibes.
+      </p>
+      <p>
+        <strong>What it demonstrates:</strong> This lab shows my ability to evaluate visual communication critically and explain design choices
+        in a way that’s grounded in an actual framework — not just personal opinion.
+      </p>
+
+      <p class="reflection-links">
+        <a href="lab03.html">View Lab 3 page</a>
+        <!-- <a href="docs/lab03-written.pdf" target="_blank" rel="noopener">Full written portion</a> -->
+      </p>
+    </article>
+
+    <!-- LAB 4 -->
+    <article class="reflection-card">
+      <h3>Lab 4 — Tableau Visualization</h3>
+
+      <p>
+        <strong>Lab requirement synopsis:</strong> Build an interactive Tableau visualization using a dataset, make intentional design decisions,
+        and communicate what the visualization shows through written interpretation.
+      </p>
+
+      <p>
+        <strong>What I learned:</strong> I learned that a visualization isn’t just “put data in a chart” — it’s deciding what story the data tells,
+        what the audience should notice first, and how interaction changes understanding. Tableau also taught me how quickly design choices
+        (filters, labels, color, scale) can improve or totally ruin clarity.
+      </p>
+      <p>
+        <strong>What it demonstrates:</strong> This lab shows I can work with real datasets, build an interactive visualization, and connect the
+        visual output to an explanation (so it’s not just a pretty chart with no meaning).
+      </p>
+
+      <p class="reflection-links">
+        <a href="lab04.html">View Lab 4 page</a>
+        <!-- <a href="docs/lab04-written.pdf" target="_blank" rel="noopener">Full written portion</a> -->
+      </p>
+    </article>
+
+    <!-- LAB 5 -->
+    <article class="reflection-card">
+      <h3>Lab 5 — Vibe Coding</h3>
+
+      <p>
+        <strong>Lab requirement synopsis:</strong> Use AI-assisted coding in a realistic workflow, explain what the AI generated,
+        evaluate what worked vs. didn’t, document what you changed, and reflect on learning trade-offs and attribution.
+      </p>
+
+      <p>
+        <strong>What I learned:</strong> Lab 5 was honestly the most “real-world” feeling because AI can be helpful… but also annoying.
+        I learned how to debug when AI output isn’t correct, and how to ask better prompts to get cleaner, simpler code. I also learned that
+        I can’t rely on AI for understanding — I still need to explain what the code is doing in my own words if I want it to be usable.
+      </p>
+      <p>
+        <strong>What it demonstrates:</strong> This lab shows I can collaborate with AI as a tool (not a crutch), fix issues, and make design
+        choices intentionally. It also shows I understand responsible use: citing AI help and thinking about when AI should/shouldn’t be used.
+      </p>
+
+      <p class="reflection-links">
+        <a href="lab05.html">View Lab 5 page</a>
+        <!-- <a href="docs/lab05-written.pdf" target="_blank" rel="noopener">Full written portion</a> -->
+      </p>
+    </article>
+
+    <!-- LAB 6 -->
+    <article class="reflection-card">
+      <h3>Lab 6 — Hometown Map</h3>
+
+      <p>
+        <strong>Lab requirement synopsis:</strong> Create an interactive map (Folium/Mapbox workflow) with meaningful locations,
+        incorporate design decisions, and connect the map to reflection/storytelling.
+      </p>
+
+      <p>
+        <strong>What I learned:</strong> This lab taught me that mapping is both technical and personal. I learned how layering, labels,
+        and styling choices change what the user notices — and I also learned how to connect “data” to narrative by choosing locations
+        that actually mean something and writing reflections that explain why.
+      </p>
+      <p>
+        <strong>What it demonstrates:</strong> This lab shows I can combine technical mapping tools with storytelling, and that I can present
+        information spatially in a way that’s engaging and understandable (not just a map for the sake of a map).
+      </p>
+
+      <p class="reflection-links">
+        <a href="lab06.html">View Lab 6 page</a>
+        <!-- <a href="docs/lab06-written.pdf" target="_blank" rel="noopener">Full written portion</a> -->
+      </p>
+    </article>
+  </div>
+
+  <!-- =========================
+       OVERALL GROWTH
+       ========================= -->
+
+  <h3>Overall Growth</h3>
+  <p>
+    <strong>Biggest growth area:</strong> I’ve gotten more confident moving between “creative” and “technical” work — like writing reflections,
+    designing layouts, embedding visuals, and troubleshooting code when something breaks.
+  </p>
+  <p>
+    <strong>Challenges I overcame:</strong> The most consistent challenge has been debugging (especially file paths, images, and styling issues).
+    I’ve learned to slow down, check the basics first, and make small changes instead of randomly changing everything and hoping it works.
+  </p>
+  <p>
+    <strong>Looking ahead:</strong> I want to keep improving the visual consistency of my site (spacing, typography, and section flow),
+    and I also want to get better at making embedded content feel like it belongs on the page instead of looking “pasted in.”
+  </p>
+
+  <!-- 
+    NOTE TO SELF:
+    If I add separate “written-only” pages or PDFs for each lab, I should update the links above.
+    The portfolio instructions specifically mention linking to the full written portion of each lab.
+  -->
+</section>
 
     <!-- Footer: Links and copyright -->
     <footer>
